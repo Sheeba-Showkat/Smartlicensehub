@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>10</order>
+        <role display_value="x_1977323_smartlic.admin" name="x_1977323_smartlic.admin">56f8b5b893984310b439f04bdd03d6c9</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-14 16:12:23</sys_created_on>
+        <sys_id>9019b9b893984310b439f04bdd03d607</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>56f8b5b893984310b439f04bdd03d6c9</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_embedded_help_role_9019b9b893984310b439f04bdd03d607</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-14 16:12:23</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>
