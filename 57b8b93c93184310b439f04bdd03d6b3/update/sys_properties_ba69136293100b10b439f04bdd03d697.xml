@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_1977323_smartlic.cost_csm_enterprise</name>
+        <read_roles/>
+        <suffix>cost_csm_enterprise</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 09:44:46</sys_created_on>
+        <sys_id>ba69136293100b10b439f04bdd03d697</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1977323_smartlic.cost_csm_enterprise</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_properties_ba69136293100b10b439f04bdd03d697</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 09:44:46</sys_updated_on>
+        <type>integer</type>
+        <value>1400</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=ba69136293100b10b439f04bdd03d697"/>
+</record_update>

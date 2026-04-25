@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>target_license</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Auto-populate License Cost</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // 1. Convert to lowercase and strip underscores/spaces
+    // Example: 'itsm_pro' becomes 'itsmpro'
+    var input = newValue.toString().toLowerCase().replace(/[^a-z0-9]/g, '');
+    var cost = 0;
+
+    // 2. Sequential Matching for all 20 Subcategories
+    // ITSM
+    if (input.indexOf('itsmstandard') > -1) { cost = 1000; }
+    else if (input.indexOf('itsmpro') > -1) { cost = 1200; }
+    else if (input.indexOf('itsmenterprise') > -1) { cost = 1500; }
+    else if (input.indexOf('itsmadmin') > -1) { cost = 1200; }
+    
+    // HRSD
+    else if (input.indexOf('hrsdstandard') > -1) { cost = 800; }
+    else if (input.indexOf('hrsdpro') > -1) { cost = 1000; }
+    else if (input.indexOf('hrsdenterprise') > -1) { cost = 1300; }
+    else if (input.indexOf('hrsdadmin') > -1) { cost = 1000; }
+    else if (input.indexOf('hrsder') > -1) { cost = 1100; }
+    
+    // CSM
+    else if (input.indexOf('csmstandard') > -1) { cost = 900; }
+    else if (input.indexOf('csmpro') > -1) { cost = 1100; }
+    else if (input.indexOf('csmenterprise') > -1) { cost = 1400; }
+    else if (input.indexOf('csmadmin') > -1) { cost = 1100; }
+    else if (input.indexOf('csmcontributor') > -1) { cost = 500; }
+    
+    // SPM
+    else if (input.indexOf('spmstandard') > -1) { cost = 1100; }
+    else if (input.indexOf('spmpro') > -1) { cost = 1300; }
+    else if (input.indexOf('spmenterprise') > -1) { cost = 1600; }
+    else if (input.indexOf('spmadmin') > -1) { cost = 1300; }
+    else if (input.indexOf('spmagile') > -1) { cost = 400; }
+    
+    // Global & Others
+    else if (input.indexOf('approveruser') > -1) { cost = 100; }
+    else if (input.indexOf('stakeholder') > -1) { cost = 300; }
+    else if (input.indexOf('appengine') > -1) { cost = 800; }
+
+    // 3. Update the form UI
+    g_form.setValue('amount', cost.toString());
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-19 14:14:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>857dcb96931c4710b439f04bdd03d6ae</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Auto-populate License Cost</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_script_client_857dcb96931c4710b439f04bdd03d6ae</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 10:11:51</sys_updated_on>
+        <table>x_1977323_smartlic_license_audit</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

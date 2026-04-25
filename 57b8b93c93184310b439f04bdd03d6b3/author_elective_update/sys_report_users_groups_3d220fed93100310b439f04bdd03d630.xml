@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_report_users_groups">
+    <sys_report_users_groups action="DELETE">
+        <group_id/>
+        <report_id display_value="">79220fed93100310b439f04bdd03d62f</report_id>
+        <sys_class_name>sys_report_users_groups</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-17 05:27:09</sys_created_on>
+        <sys_id>3d220fed93100310b439f04bdd03d630</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>79220fed93100310b439f04bdd03d62f</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_report_users_groups_3d220fed93100310b439f04bdd03d630</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-17 05:27:09</sys_updated_on>
+        <user_id display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</user_id>
+    </sys_report_users_groups>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sys_report_users_groups_3d220fed93100310b439f04bdd03d630</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_report_users_groups"><sys_report_users_groups action="INSERT_OR_UPDATE"><group_id/><report_id display_value="">79220fed93100310b439f04bdd03d62f</report_id><sys_class_name>sys_report_users_groups</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-04-17 05:27:09</sys_created_on><sys_id>3d220fed93100310b439f04bdd03d630</sys_id><sys_mod_count>0</sys_mod_count><sys_name>79220fed93100310b439f04bdd03d62f</sys_name><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>sys_report_users_groups_3d220fed93100310b439f04bdd03d630</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-04-17 05:27:09</sys_updated_on><user_id display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</user_id></sys_report_users_groups></record_update>]]></payload>
+        <payload_hash>-65813154</payload_hash>
+        <record_name>79220fed93100310b439f04bdd03d62f</record_name>
+        <reverted_from/>
+        <source>96b6ceb493d84310b439f04bdd03d640</source>
+        <source_table>sys_update_set</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-17 05:27:09</sys_created_on>
+        <sys_id>312287e193500310b439f04bdd03d61f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19d99e844f60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-17 05:27:09</sys_updated_on>
+        <type>Report Users and Groups</type>
+        <update_guid>f92287e19e500310f300841c68a0e11d</update_guid>
+        <update_guid_history>f92287e19e500310f300841c68a0e11d:-65813154</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-17 07:21:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_report_users_groups">sys_report_users_groups</sys_db_object>
+        <sys_id>0435feb265c94fd1864f7b4d59099851</sys_id>
+        <sys_metadata>3d220fed93100310b439f04bdd03d630</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>79220fed93100310b439f04bdd03d62f</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent display_value="">79220fed93100310b439f04bdd03d62f</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sys_report_users_groups_3d220fed93100310b439f04bdd03d630</sys_update_name>
+        <sys_update_version display_value="sys_report_users_groups_3d220fed93100310b439f04bdd03d630">312287e193500310b439f04bdd03d61f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-17 07:21:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

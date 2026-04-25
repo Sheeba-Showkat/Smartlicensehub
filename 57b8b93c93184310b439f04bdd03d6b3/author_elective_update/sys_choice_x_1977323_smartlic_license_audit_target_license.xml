@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="target_license" table="x_1977323_smartlic_license_audit" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>target_license</element>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-04-17 08:34:56</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>target_license</sys_name>
+            <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+            <sys_update_name>sys_choice_x_1977323_smartlic_license_audit_target_license</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-04-17 08:34:56</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Legacy Approver</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 07:47:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 07:48:01</sys_updated_on>
+            <value>approver_user</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSM Administrator</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:04:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:04:18</sys_updated_on>
+            <value>csm_admin</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSM Contributor</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:04:33</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:04:46</sys_updated_on>
+            <value>csm_contributor</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSM Enterprise</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:03:34</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:03:47</sys_updated_on>
+            <value>csm_enterprise</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSM Professional</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-19 13:41:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-19 13:41:31</sys_updated_on>
+            <value>csm_pro</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CSM Standard</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:02:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:03:09</sys_updated_on>
+            <value>csm_standard</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Draft</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-21 07:28:24</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-21 07:28:33</sys_updated_on>
+            <value>draft</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>HR Administrator</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:00:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:01:07</sys_updated_on>
+            <value>hrsd_admin</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>HRSD Enterprise</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:00:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:00:40</sys_updated_on>
+            <value>hrsd_enterprise</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Employee Relations Specialist</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:01:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:01:43</sys_updated_on>
+            <value>hrsd_er</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>HRSD Professional</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-19 13:40:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-19 13:41:05</sys_updated_on>
+            <value>hrsd_pro</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>HRSD Standard</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 07:59:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:00:09</sys_updated_on>
+            <value>hrsd_standard</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ITSM Admin / Developer</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 07:47:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 07:47:28</sys_updated_on>
+            <value>itsm_admin</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ITSM Enterprise</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 07:46:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 07:46:55</sys_updated_on>
+            <value>itsm_enterprise</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ITSM Professional</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-19 13:40:31</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-19 13:40:43</sys_updated_on>
+            <value>itsm_pro</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>ITSM Standard</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-04-20 07:21:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 07:46:24</sys_updated_on>
+            <value>itsm_standard</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>SPM Administrator</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:07:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:07:42</sys_updated_on>
+            <value>spm_admin</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Agile Team Member</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:07:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:07:16</sys_updated_on>
+            <value>spm_agile</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>SPM Enterprise</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:06:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:06:54</sys_updated_on>
+            <value>spm_enterprise</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>SPM Professional</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:06:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:06:32</sys_updated_on>
+            <value>spm_pro</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>target_license</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>SPM Standard</label>
+            <language>en</language>
+            <name>x_1977323_smartlic_license_audit</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-20 08:05:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-20 08:06:06</sys_updated_on>
+            <value>spm_standard</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

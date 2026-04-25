@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="DELETE">
+        <canvas display_value="">9f13076593500310b439f04bdd03d622</canvas>
+        <component display_value="Rich text">2d56f06d55f46bbd4e79b5e624beb940</component>
+        <component_props>{"html":"&lt;p&gt;&lt;code data-index-in-node=\"48\" data-path-to-node=\"9,4,0\"&gt;🟦 CLICK HERE TO CHANGE ITSM BASED LICENSE 🟦&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\"&gt;VTB: License Audits by Target License | ServiceNow&lt;/a&gt;&amp;nbsp;&lt;/p&gt;","id":"html","value":"&lt;p&gt;&lt;code data-index-in-node=\"48\" data-path-to-node=\"9,4,0\"&gt;🟦 CLICK HERE TO CHANGE ITSM BASED LICENSE 🟦&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\"&gt;VTB: License Audits by Target License | ServiceNow&lt;/a&gt;&amp;nbsp;&lt;/p&gt;","noDebounce":true,"propLabel":"HTML"}</component_props>
+        <h>4</h>
+        <name/>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-17 09:06:21</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f854b72993d40310b439f04bdd03d65b</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>par_dashboard_widget_f854b72993d40310b439f04bdd03d65b</sys_update_name>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-23 05:51:18</sys_updated_on>
+        <visualization/>
+        <w>14</w>
+        <widget_props/>
+        <x>26</x>
+        <y>18</y>
+    </par_dashboard_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>par_dashboard_widget_f854b72993d40310b439f04bdd03d65b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget"><par_dashboard_widget action="INSERT_OR_UPDATE"><canvas display_value="">9f13076593500310b439f04bdd03d622</canvas><component display_value="Rich text">2d56f06d55f46bbd4e79b5e624beb940</component><component_props>{"html":"&lt;p&gt;&lt;code data-index-in-node=\"48\" data-path-to-node=\"9,4,0\"&gt;]]>🟦<![CDATA[ CLICK HERE TO CHANGE ITSM BASED LICENSE ]]>🟦<![CDATA[&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\"&gt;VTB: License Audits by Target License | ServiceNow&lt;/a&gt;&amp;nbsp;&lt;/p&gt;","id":"html","value":"&lt;p&gt;&lt;code data-index-in-node=\"48\" data-path-to-node=\"9,4,0\"&gt;]]>🟦<![CDATA[ CLICK HERE TO CHANGE ITSM BASED LICENSE ]]>🟦<![CDATA[&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\"&gt;VTB: License Audits by Target License | ServiceNow&lt;/a&gt;&amp;nbsp;&lt;/p&gt;","noDebounce":true,"propLabel":"HTML"}</component_props><h>4</h><name/><stored_component/><sys_class_name>par_dashboard_widget</sys_class_name><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-17 09:06:21</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>f854b72993d40310b439f04bdd03d65b</sys_id><sys_mod_count>7</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>par_dashboard_widget_f854b72993d40310b439f04bdd03d65b</sys_update_name><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-23 05:51:18</sys_updated_on><visualization/><w>14</w><widget_props/><x>26</x><y>18</y></par_dashboard_widget></record_update>]]></payload>
+        <payload_hash>-1303769851</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>5199604d935c8310b439f04bdd03d68f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-23 05:51:18</sys_created_on>
+        <sys_id>9e314aeb93dc8f10b439f04bdd03d678</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19db8e48a710000001</sys_recorded_at>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-23 05:51:18</sys_updated_on>
+        <type>PAR Dashboard Widget</type>
+        <update_guid>1e314aebeddc8f107cad2b1dc35bfa77</update_guid>
+        <update_guid_history>1e314aebeddc8f107cad2b1dc35bfa77:-1303769851,014ba11361dc0f108e10e7f93e8a7520:-409783420,c52acb26f19cc710e0aa9234f9c4bedc:1681086279,3de847a2c09cc7102e82f48e3dca8cba:421310535,79e1c6dad8904710560e70a7a03c4ec8:-1135565600,c8f43f69aed40310eeb28420eb4fe307:1850219235,7094ff2982d40310ae9c8c6cfd7eae3b:181201411,fc54b72962d40310fd4ec11c00b1be5e:153418469</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">05f9862f9310cf10b439f04bdd03d6af</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-23 06:29:27</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_widget">par_dashboard_widget</sys_db_object>
+        <sys_id>25ec93d7643b475db60206410157dcf1</sys_id>
+        <sys_metadata>f854b72993d40310b439f04bdd03d65b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>par_dashboard_widget_f854b72993d40310b439f04bdd03d65b</sys_update_name>
+        <sys_update_version display_value="par_dashboard_widget_f854b72993d40310b439f04bdd03d65b">9e314aeb93dc8f10b439f04bdd03d678</sys_update_version>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-23 06:29:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=187376000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27800</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>omniboard_deletion_engine</internal_name>
+        <label_cache>[{"name":"Created or Updated_1.current.amount","label":"Trigger - Record Created or Updated➛License Audit Record➛Amount","reference":"","reference_display":"Amount","type":"currency","base_type":"currency","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"amount","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["cost_saved"]}},{"name":"01f620a6-e637-4489-a327-cfa98a36ec05.Record.sys_id","label":"2 - Look Up Record➛User Role Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user_has_role","column_name":"sys_id","usedInstances":{"f31aac1f-7e9f-4ce1-82a2-9edae52317c7":["role_sys_id"]}},{"name":"Created or Updated_1.current.review_status","label":"Trigger - Record Created or Updated➛License Audit Record➛Review Status","reference":"","reference_display":"Review Status","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"review_status","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Auto-Revoked","reference":false,"used":false,"rawLabel":"Auto-Revoked","selected":false,"missing":false,"value":"auto_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Manually Revoked","reference":false,"used":false,"rawLabel":"Manually Revoked","selected":false,"missing":false,"value":"manually_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Newly Assigned","reference":false,"used":false,"rawLabel":"Newly Assigned","selected":false,"missing":false,"value":"newly_assigned","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Pending Review","reference":false,"used":false,"rawLabel":"Pending Review","selected":false,"missing":false,"value":"pending_review","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Retained","reference":false,"used":false,"rawLabel":"Retained","selected":false,"missing":false,"value":"retained","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Created or Updated_1.current.target_user.name","label":"Trigger - Record Created or Updated➛License Audit Record➛Target User➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Created or Updated_1.current.target_license","label":"Trigger - Record Created or Updated➛License Audit Record➛Target License","reference":"","reference_display":"Target License","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_license","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Agile Team Member","reference":false,"used":false,"rawLabel":"Agile Team Member","selected":false,"missing":false,"value":"spm_agile","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Administrator","reference":false,"used":false,"rawLabel":"CSM Administrator","selected":false,"missing":false,"value":"csm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Contributor","reference":false,"used":false,"rawLabel":"CSM Contributor","selected":false,"missing":false,"value":"csm_contributor","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Enterprise","reference":false,"used":false,"rawLabel":"CSM Enterprise","selected":false,"missing":false,"value":"csm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Professional","reference":false,"used":false,"rawLabel":"CSM Professional","selected":false,"missing":false,"value":"csm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Standard","reference":false,"used":false,"rawLabel":"CSM Standard","selected":false,"missing":false,"value":"csm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Draft","reference":false,"used":false,"rawLabel":"Draft","selected":false,"missing":false,"value":"draft","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Employee Relations Specialist","reference":false,"used":false,"rawLabel":"Employee Relations Specialist","selected":false,"missing":false,"value":"hrsd_er","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HR Administrator","reference":false,"used":false,"rawLabel":"HR Administrator","selected":false,"missing":false,"value":"hrsd_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Enterprise","reference":false,"used":false,"rawLabel":"HRSD Enterprise","selected":false,"missing":false,"value":"hrsd_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Professional","reference":false,"used":false,"rawLabel":"HRSD Professional","selected":false,"missing":false,"value":"hrsd_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Standard","reference":false,"used":false,"rawLabel":"HRSD Standard","selected":false,"missing":false,"value":"hrsd_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Admin / Developer","reference":false,"used":false,"rawLabel":"ITSM Admin / Developer","selected":false,"missing":false,"value":"itsm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Enterprise","reference":false,"used":false,"rawLabel":"ITSM Enterprise","selected":false,"missing":false,"value":"itsm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Professional","reference":false,"used":false,"rawLabel":"ITSM Professional","selected":false,"missing":false,"value":"itsm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Standard","reference":false,"used":false,"rawLabel":"ITSM Standard","selected":false,"missing":false,"value":"itsm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Legacy Approver","reference":false,"used":false,"rawLabel":"Legacy Approver","selected":false,"missing":false,"value":"approver_user","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Administrator","reference":false,"used":false,"rawLabel":"SPM Administrator","selected":false,"missing":false,"value":"spm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Enterprise","reference":false,"used":false,"rawLabel":"SPM Enterprise","selected":false,"missing":false,"value":"spm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Professional","reference":false,"used":false,"rawLabel":"SPM Professional","selected":false,"missing":false,"value":"spm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Standard","reference":false,"used":false,"rawLabel":"SPM Standard","selected":false,"missing":false,"value":"spm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"01f620a6-e637-4489-a327-cfa98a36ec05.Record","label":"2 - Look Up Record➛User Role Record","reference":"sys_user_has_role","reference_display":"User Role","type":"reference","base_type":"reference","usedInstances":{"60d848b5-2a7d-41f1-ae49-f00c459a2699":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.target_user","label":"Trigger - Record Created or Updated➛License Audit Record➛Target User","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_user","usedInstances":{"01f620a6-e637-4489-a327-cfa98a36ec05":["conditions"]}},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛License Audit Record","reference":"x_1977323_smartlic_license_audit","reference_display":"License Audit","type":"reference","base_type":"reference","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["record"]},"attributes":{}},{"name":"Updated_1.current.target_user","label":"Trigger - Record Updated➛License Audit Record➛Target User","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_user","usedInstances":{"0456e78d-f5f8-4893-9dc9-2e26410cdd06":["conditions"]}},{"name":"Updated_1.current.target_license","label":"Trigger - Record Updated➛License Audit Record➛Target License","reference":"","reference_display":"Target License","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_license","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Agile Team Member","reference":false,"used":false,"rawLabel":"Agile Team Member","selected":false,"missing":false,"value":"spm_agile","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Administrator","reference":false,"used":false,"rawLabel":"CSM Administrator","selected":false,"missing":false,"value":"csm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Contributor","reference":false,"used":false,"rawLabel":"CSM Contributor","selected":false,"missing":false,"value":"csm_contributor","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Enterprise","reference":false,"used":false,"rawLabel":"CSM Enterprise","selected":false,"missing":false,"value":"csm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Professional","reference":false,"used":false,"rawLabel":"CSM Professional","selected":false,"missing":false,"value":"csm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Standard","reference":false,"used":false,"rawLabel":"CSM Standard","selected":false,"missing":false,"value":"csm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Draft","reference":false,"used":false,"rawLabel":"Draft","selected":false,"missing":false,"value":"draft","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Employee Relations Specialist","reference":false,"used":false,"rawLabel":"Employee Relations Specialist","selected":false,"missing":false,"value":"hrsd_er","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HR Administrator","reference":false,"used":false,"rawLabel":"HR Administrator","selected":false,"missing":false,"value":"hrsd_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Enterprise","reference":false,"used":false,"rawLabel":"HRSD Enterprise","selected":false,"missing":false,"value":"hrsd_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Professional","reference":false,"used":false,"rawLabel":"HRSD Professional","selected":false,"missing":false,"value":"hrsd_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Standard","reference":false,"used":false,"rawLabel":"HRSD Standard","selected":false,"missing":false,"value":"hrsd_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Admin / Developer","reference":false,"used":false,"rawLabel":"ITSM Admin / Developer","selected":false,"missing":false,"value":"itsm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Enterprise","reference":false,"used":false,"rawLabel":"ITSM Enterprise","selected":false,"missing":false,"value":"itsm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Professional","reference":false,"used":false,"rawLabel":"ITSM Professional","selected":false,"missing":false,"value":"itsm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Standard","reference":false,"used":false,"rawLabel":"ITSM Standard","selected":false,"missing":false,"value":"itsm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Legacy Approver","reference":false,"used":false,"rawLabel":"Legacy Approver","selected":false,"missing":false,"value":"approver_user","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Administrator","reference":false,"used":false,"rawLabel":"SPM Administrator","selected":false,"missing":false,"value":"spm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Enterprise","reference":false,"used":false,"rawLabel":"SPM Enterprise","selected":false,"missing":false,"value":"spm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Professional","reference":false,"used":false,"rawLabel":"SPM Professional","selected":false,"missing":false,"value":"spm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Standard","reference":false,"used":false,"rawLabel":"SPM Standard","selected":false,"missing":false,"value":"spm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"0ecd7429-baee-4098-9ed1-4574a18708a2":["log_message"],"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Updated_1.current.target_user.name","label":"Trigger - Record Updated➛License Audit Record➛Target User➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Updated_1.current.review_status","label":"Trigger - Record Updated➛License Audit Record➛Review Status","reference":"","reference_display":"Review Status","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"review_status","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Auto-Revoked","reference":false,"used":false,"rawLabel":"Auto-Revoked","selected":false,"missing":false,"value":"auto_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Manually Revoked","reference":false,"used":false,"rawLabel":"Manually Revoked","selected":false,"missing":false,"value":"manually_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Newly Assigned","reference":false,"used":false,"rawLabel":"Newly Assigned","selected":false,"missing":false,"value":"newly_assigned","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Pending Review","reference":false,"used":false,"rawLabel":"Pending Review","selected":false,"missing":false,"value":"pending_review","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Retained","reference":false,"used":false,"rawLabel":"Retained","selected":false,"missing":false,"value":"retained","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"flow_variable.mapped_role_id","label":"Flow Variables➛variable","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","usedInstances":{"0456e78d-f5f8-4893-9dc9-2e26410cdd06":["conditions"],"01f620a6-e637-4489-a327-cfa98a36ec05":["conditions"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"adc462f7-0085-4543-a7ba-df422e57bb3a"}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛License Audit Record","reference":"x_1977323_smartlic_license_audit","reference_display":"License Audit","type":"reference","base_type":"reference","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["record"]},"attributes":{}}]</label_cache>
+        <master_snapshot>97fc117a93dc0b10b439f04bdd03d6c1</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Omni-Board Deletion Engine</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>732fbcc793d88b10b439f04bdd03d63c</remote_trigger_id>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 05:58:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6d26ea2e9358c710b439f04bdd03d644</sys_id>
+        <sys_mod_count>52</sys_mod_count>
+        <sys_name>Omni-Board Deletion Engine</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_hub_flow_6d26ea2e9358c710b439f04bdd03d644</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_variable_value action="delete_multiple" query="document_key=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_1977323_smartlic_license_audit">review_statusCHANGESTOauto_revoked^ORreview_statusCHANGESTOmanually_revoked^review_statusVALCHANGES<item display_value="Auto-Revoked" endquery="false" field="review_status" goto="false" newquery="false" operator="CHANGESTO" or="false" value="auto_revoked"/>
+            <item display_value="Manually Revoked" endquery="false" field="review_status" goto="false" newquery="false" operator="CHANGESTO" or="true" value="manually_revoked"/>
+            <item display_value="-- None --" endquery="false" field="review_status" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>true</on_update>
+        <published_version/>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 11:45:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>732fbcc793d88b10b439f04bdd03d63c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 11:45:49</sys_updated_on>
+        <table>x_1977323_smartlic_license_audit</table>
+        <trigger_definition/>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>6d26ea2e9358c710b439f04bdd03d644</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-22 10:01:42</sys_created_on>
+        <sys_id>68f0bddb93dc0f10b439f04bdd03d65a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <trigger display_value="">732fbcc793d88b10b439f04bdd03d63c</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN68f0bddb93dc0f10b439f04bdd03d65a"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT INe126ea2e9358c710b439f04bdd03d649"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>6d26ea2e9358c710b439f04bdd03d644</id>
+        <name>Omni-Board Deletion Engine</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 05:58:43</sys_created_on>
+        <sys_id>e126ea2e9358c710b439f04bdd03d649</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 05:58:43</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=e126ea2e9358c710b439f04bdd03d649"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN10fc9d3a93dc0b10b439f04bdd03d641,68fc9d3a93dc0b10b439f04bdd03d654,ecfc9d3a93dc0b10b439f04bdd03d64e"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</model>
+        <model_id>6d26ea2e9358c710b439f04bdd03d644</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:21</sys_created_on>
+        <sys_id>10fc9d3a93dc0b10b439f04bdd03d641</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:21</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=10fc9d3a93dc0b10b439f04bdd03d641"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</model>
+        <model_id>6d26ea2e9358c710b439f04bdd03d644</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:22</sys_created_on>
+        <sys_id>68fc9d3a93dc0b10b439f04bdd03d654</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:22</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=68fc9d3a93dc0b10b439f04bdd03d654"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</model>
+        <model_id>6d26ea2e9358c710b439f04bdd03d644</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:22</sys_created_on>
+        <sys_id>ecfc9d3a93dc0b10b439f04bdd03d64e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:22</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ecfc9d3a93dc0b10b439f04bdd03d64e"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN17d8e3fe93dc4b10b439f04bdd03d618"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <generation_source/>
+        <name>Created or Updated</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:28:40</sys_created_on>
+        <sys_id>17d8e3fe93dc4b10b439f04bdd03d618</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 11:45:40</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VaWW/bOBD+K4KedgHvQodtxelTNsc2QLYBHLf7UHQFiqRsojLlipRSb9H/vkNdlnU4PpSuGyCHSYoz8/Gbb0gxH7/pAfJooF/qM+QFVB/ojEsacRTM1isKzVI1uxwtVd8ScYJkGK31SxnFdKD7Ubic0eUqQBIG+ygQ0BhGhEb6pTnQExTE9Gkt7gnMBM+n0+Rz6nk3fP7qmhPHsS3bFUsUyYBhF74pF9RFMWEShhImwMj6Q/7EQ9atXeXdeMECElGuX378NNBXKAJDUjnxrdbFlCfYN6k5uTCwbcGXYVgXQ9Mb255pERtRZMCEdVRqnssWcDZh06+SckJJiUgDt4gi8siDdWXEV8H+hTkvDNXrU/AY0wy18qObo5A140UIKDyuJAt51pJ5l3WGQbzk7zKvFX7UR3EgC/ygJQZ0CV0pR7ks/fCfFuHztDB4x3gaU94ZhBgF5SckZcS8WFKhYPZZAIC7GSIijKPU++nt9eP0xv37anb99nbqTm+fZtP769ntjf49jcv9EqsZMw9zX9wsnO/lot8xGqhl4/HSA28GusARW8krLFlSsO77YMPk65ADKxQqDTbjoktss7mIfhedDaOT0LhisSB1RBNGn10hkYzF9durd39C8I8olqELXeFnSv55nLYPAscAlmBdDtwa9uHqIR95MPEdwyHE7CI+9irEr4LYEqVswbMK1K4UyFu6c2BoGP9TFuSqdmwSLENCg5vNdDp0zueQFoyvYqkwKnBxwxWNFB7wnL5Z0Tf577vp419vSj7Ac8+IS+ECdxAhbgV1ZQJieSmbMkyaKfVyMkUxhynccj2bKZUuQLkSD0xA4B9BEAqU0ymh33/Ip5zGXAth4eGHhuMIQJZaIaz+/RLN87Xxn2hAsayQyH8vqp/+YkIwPq94XRpNUWnYLM0BGbUipMy2ONH4pz71pAl6UgOzVg8PVgITDy3D9saGo3TAhD9903CMEfKJbRjeRUUJms50eilrlOhREQ7TA5FSMNiDcHVgc5eNag7sRZ5km3lF6IoYuexc9+Oa2ZNrlnKtJp/2QfpZkjFrvtnm5K7Qet58IJIgeILsK4dqwB665wfhM0j3EZrnIfx5HoUxJ3URUnNqjGubEdovOX6/9qh/fhjR3Q5sjzgn5dvAXhAX8XUPmmfZJnXGw7EBUmcrlRtNJh5Glu87Y4eaZk3zNm60+nbGWvcCx5I2knbpXitdkjaWHaB4JzjYUL+DHTxd93I6tqpe1vdz6NvzgnIXXI3guC1kU+bmASO06Os3xxumk01Wn5rn2JuQ0chxsAMnHMhzf0g9ZA6tEZo4Y5v6tTxvuLLLTdmCzCuee8RapOY7NOB91nVebwJek6yCSqlKz+EVmcNONX0GZUYqVVEthpZKSRhp70L+2/1mnPZEodilR96+SvM+XqiF1V7XDS+Ui8beAEz/Ae1bptWesgOVszs01UiSbMd6qrAgy0IT0+4QFmfcJiwbZ7rdPNOtxJ55kXRmWNueYl+aJ63Z0rkJOIK4NXJUdwc7ti99gWL2Dor1eqDYJ2+ZigzsPCke4+xPVLjSPcQp1UvZpG7oVyX7JtSgQwMjGvO1/F0jHPy9tSYXFCANYG8MBjVl/VStrtaOpislg3+sI9luu1HDoFnLt03nV55qVOj3jEuJjSekq0QNnc69b3edqnWfabE6OBeSttTaWbEOm7c+Z2vNqhB1mwd7VqNeo24vSadF3VqUXor69HKz64Te4sX5FxLl9CxbhiPKR8hx7ayB+7xsiTn7ElMXLxCfZxcphaE7wJkivNCyIVo2pM8CEDyjtdDrlQhIq/Iif+0MDZAhPNOvvizThEbrRqyqUYtXRBWHH1x8rB3Fp7iHFDKCJ+frSuYVcRz4LtWbQHaNDGybpt24SR5Vb5K3qdvtUEdhsY4tLAuWXsFWzOfLI9mSpjJW3qNqSyTxgoqBBmuY3lmkKsciIdPRv+s9Hqpw9W4nz8y2utOZO0lX2nXq+I50SOqJ1CbcLdSu06cq3TuPTzvCN3sJ3+ojfPu48IcnV64ckfbSlaPXb7k64j9x9PZ69ek/CXMfOk8mAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN01fc9d3a93dc0b10b439f04bdd03d6e1,277d6f3a93108b10b439f04bdd03d6ae,2a5a3f3693908b10b439f04bdd03d6e3,50d62f7a93dc4b10b439f04bdd03d617"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Log">5bc1bcc6531003003bf1d9109ec587d4</action_type>
+        <action_type_parent display_value="Log">0e0ae8c2531003003bf1d9109ec587c8</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>5bc1bcc6531003003bf1d9109ec587d4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:24</sys_created_on>
+        <sys_id>01fc9d3a93dc0b10b439f04bdd03d6e1</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:02:37</sys_updated_on>
+        <ui_id>965854b3-e9b4-4385-a0e2-1aef75a6f1ff</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VUUW/aMBD+K5GfISJQ1pW3iq7SJNpKRWMPVRUZ+wLWHDuzHShj+e87JwayFm0g9WWaxAP+8p19391397QlgpMRGc5ZMmfsw3CQ9HoD/M2zhF8lvStgw4+X/JJ0iKI5IFPqRSphBRKhFZWlx4TKNB65sIWkm1lAPzcoWwrJDSgyenrukIIavMeBIaPtq0+nJiLpHF8fkUnI4khiblN4iC21YBDOkxA23oHacJ9Gr0PgxYHigO9nVFrokJwqTp02mz1igPIHJQ/AUiiHtxFPfrHiB7530fO8DFARg+bb/piG4jRwdkMdnTpTMleaQG2StViL7V5itxvdawVRt9uqdiv1qnPghnK/6klgJm3mV2qUUIsWeY3Igdxvkz8Zo02LCuEcuIMKO8cho6V04/MVJCcr6J+jYHCGgguvoCn+Q+GERjeSxHuGzuWuNVqWubpvfEb2emev7N+gN0enoLRoASi8zbxvgomy6VKvH3ceuRWqzih8lJpRuT9R54yYl87Xd0tAQo4XpTktCixEWhi9EnUwJpvHC4mHOJN6jY9asVAxZV5ajK6m8S3iNzU8o0Z4mXd4DQZXHWI3diyptQexaOH0e+kzaaQHDWldqDqEGVG4a3xgBSFdX/56nPuDP40zDH8f3xyspQto9WqCXVEWokdY6W/AR1EUbbdjHEYHPNIm+lJw/zdNYlYaLKKLHTULcKlsAqsqypCG1TcnBnpq7HPC0J/R1FFX2tFfQg2sBKxTW5Or6u0q/FdlnLe7T2j2bibv9p0+2v6wvy1avp7y9v6e7sDdCnm3/d0fDt9ngR9biW+XzFk75v9bIc+/AI/5jNScCAAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=01fc9d3a93dc0b10b439f04bdd03d6e1"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>9d09f99587003300663ca1bb36cb0ba3</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:48:54</sys_created_on>
+        <sys_id>277d6f3a93108b10b439f04bdd03d6ae</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:02:37</sys_updated_on>
+        <ui_id>01f620a6-e637-4489-a327-cfa98a36ec05</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VY227jNhD9FUHPjiv5JjtvRQIDC2w3QC77st0SlEjFRGlSS1LOJob/fYeiJKu2YluoUyTom8UZkmdmzhmN/G3tM+Jf+mQWzNLZbDyNgmA4DILJZJjgMI6HkyQOYjzye77ASwqeBsecwuMK89w+62eNck0VWmCNlCxshOmM4+evpcsDmL1bZ0oWjBNFhX/57XvPz7CCUw1V/uV6x3QqLI5jysH1vsS1A9M8Z/UjKmxu7XNzm/fFGaQiFkrQ8+lPQwWhgCHFXNOev8SCYCPVc72iKCY3gm8XFkwYONG3zj81e4F7p4H1SylElVBnqx9RmSW3nF5jg++MyhOTq9I1WUiWUO3yQWiKc26ummvO4SYzTAq3xYXtdkueL8UXlw6/PqAqCqxA2RChmQ3UIi/DSO8W8um2QjlnoshJaeQywbx+wsYoFufG4ln7lNMlHISWOMuYeESZkitWbAYsy/4jh4d+yuUTXKrZo+jjxALvQ15xfw7r18XyV6yYjeIPOAY2AyDGgSHIlVDLXBWpXKGE57owKCy0O8vf9CwhrzjWehs5pBz9yC1ul4cyYuSSZrckimXmdzhiRcvgNr1KGeODFJxtKZdIQZhFoRvysNL4M4etZL2+AsoYSjypvIeM2J8o7Ce5gkSbvsHqkZpCSpvNX1ZI1bYiZasyK32bXdhoHRAjm82+3P6LKzvK+HgOKxlfNZPYlthS0Htrn9sOKAUdnk3QoyD4SJKGy9+fortr1KXgiFBDcpBkZMsnLZVBLpcNpe4LqTPPT4BQ8fzGMtOLn19DVdI8ZZSTtvfW3Bp23luD/+d7612SHAAR5KrHBGeiGEIA6Fuxf3yQenG4w7OCXo0hzq5hnexrAHtGei+dlXACnEoJd3C3d+/wtECs+n1Bmd1eXy2WAhieTQDDwXkEsK7DrBPZkvNq7rTVrPxfrD/e9QcKNjaEmzaBdboz7HrnYLMv4GEnBTfJ5izXr3DuzAPqK4rsvWULWMDW8j7k9IueGIGxa3t75UWkecL87zZ7yThUFaoI7w2G3fDg91bcGHZZipZQOZbBTKhoAuTQCCuKUpkLgspp/B9jMOReaVM67zeaWwr6EZ4EYXpmQb3C26u9O76Ij8dRpfJT6lWBlLdpDwLxikC8OpBuYXdpWqMzDqfnblpzzHhRDfjQyhrlpEpJ9UrjOlLIA4w4saudCCo8K6h/3/baJNDa/o5g/RBf7edvTQnF8WiAJ9EwDIMgDEgUTKMonE7idIKjUbrVKEJaJNBN4eQUqALHo4oaVZ3D/f5TNttufeYEUBUDr6WwX9eDyHgWFZTXq1Adx132k1jCJzgWOw3lHpD/Ni/eCDVdx++uqXyIv7Bydr+babfUmuu3Ghty9iDYj5x+shSb0mAwDUlyMY3C6GKUksnFjODxBZ7F42hIaDJKzzkJfP8FzDA71hIWAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=277d6f3a93108b10b439f04bdd03d6ae"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Global Role Deletion">3899f3f293908b10b439f04bdd03d6ae</action_type>
+        <action_type_parent display_value="Global Role Deletion">ee3833fe93508b10b439f04bdd03d6f2</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>3899f3f293908b10b439f04bdd03d6ae</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 06:45:05</sys_created_on>
+        <sys_id>2a5a3f3693908b10b439f04bdd03d6e3</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:02:37</sys_updated_on>
+        <ui_id>f31aac1f-7e9f-4ce1-82a2-9edae52317c7</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6VSwW7bMAz9F51tw44dx85taFFgwLYC7dZLURi0RCUCZNmV5LRZkH8fFTvZ0O5QoEc+8ZHvPerxwJRgayZ5XctcLuq8Tqs2S9sir2VatEKkuSjbJYuYgQ6p0/YaG7d3DfEitgM9BvRwSDNZLlIoYyzzVVwUVR1DvljFXEJdQV4iT5fJHfLeimSiH480QCg3aNg/fHYO3yotLBq2fnyK2ACW1Hq0bH148/RRuxpa1O/8/jcEvx8C6LxVZjPX32b6/RkkvUFOFjF89WgEkg4J2mHEOjACfG/3bO3tSIBFELdG7y8dW2U8DWOh99Wp37SuStM0dEokaxyn10vZzLlOsLwGD6Rk5H60cyvf9oqjm0IRKGHU/upfbGq4HbzqzUTx0Oozu9djZ35MabDLgPMZCRkdicAhOA3aZyPyftu/3J1V3ihzCmV+1D0HfanAU3Tt6IOeAxvVzzcpT8i7nFFjRxubDoaBkGaw/U6dtpDoLtloKhKp+xdS59TGJMCDw4QuAMkN4dcn+AGsCna/0xgih3W/jHoe8Wv4P9lyWdVVXsYcgMfFKqNPWleLWGSY1pwvecErdowYfZErDc79DYou1DyPweYU2xxQM2UcKNyqwX8hUTucszg+/QE3ies8pwMAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=2a5a3f3693908b10b439f04bdd03d6e3"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:44</sys_created_on>
+        <sys_id>50d62f7a93dc4b10b439f04bdd03d617</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:02:37</sys_updated_on>
+        <ui_id>fc2857e2-e1e2-47b6-ac10-1fe400587424</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVXWvbMBT9K0HPwdhxP/NWGgKDroV260vXmRvpOhHIlqePNFnIf9+1LSehDVkK3UNZwBDdD+mc43uspxWTgg3ZCYo4uUzOeJqk6SCOBxcnyeQsnSQDkQJiwvqshAKp0iDXRtB6DsrXgdXq2iA4FD1tet8rUf/Nkoh7Y7B06zWVCmkrBcvH0EERPpNKUJ4Nn577rAJDmzs0bLh6lToWnYIJKiq97+C9huuWVb0WmvuCcGWyC96EzlHI9L6MKENNNZwk7jNcOCwFEpAclMU+K6Akltos2dAZTwHiL+5KtdxUzGTpWqIFLKz8TSefxHVdjsSMBxE2yywI1IbzETh4oJ2582ajl5YcbauJwBy8cte7sbbgrnJSl22Lg4nqurXyRXnbKsI2G+y8D28JBFY1zxp5Syt/mOmX+w7kWJaNJIGi0hzUZgXOGTnxroazYqiw0biAqpLlNKuMnsummaAU0VTRIsqVfqEzrZyWEfAad0SqQjSm+KgJP4KRNYmvtA01r/vMLu21Amu3VEjD7JevkbTEAoWsUaGRIGsmoW7mRlbuio6aYwC+7of5n5wemjB+uR2onT23HlhkyeX5eTpIM1uAcUryjB4sSVXwQrq3Hrhp072rkH6fIY6A2xniWzMG++EHT7yJ3ez29m7bRHDE6Yc54uIzOSLQ+PSW+JsR4sHBT+3OJDWzb3dM4MBM0XWD/8PHcSqEgdz95Nq6zMIcRRs9fGVEUGi//+b4F0e8z3lH6NM5byxRCbtHsM52WBA3h1kr4CvrhWTvMSQ3F9KH+S85i5vfJ3Lhf3MvPf8Bayt0HpkJAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=50d62f7a93dc4b10b439f04bdd03d617"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN90d62f7a93dc4b10b439f04bdd03d60f"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">58d62f7a93dc4b10b439f04bdd03d60d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</flow>
+        <flow_variables_assigned>mapped_role_id</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>1</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:44</sys_created_on>
+        <sys_id>90d62f7a93dc4b10b439f04bdd03d60f</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:39</sys_updated_on>
+        <ui_id>8f2f7a39-fa7c-4d48-ad61-cd61e2beaa28</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Y33PiNhD+V1Q/JTPgc4CEXPJ00zRpZnJ3nZDeS7nxyPIa1MiST5IhNMP/3pVsQ8Lxw30uPIC9kna/79u1d4fXQJW2KK15Up+M4RMZXP31vRNw6Wx4/RpImkNwFeS0KCCNtRIQ8zToBDMqSreAlyk3haCLb2sLm3KRaqi9FVSjEws6uHrdWLKLAmJBExB4cGQ1lxM8jgGugrPL9AKSIf3YT9kgOYuSQf9jFg2SNI366UWW4L7m4IxqThMBaNoF1wVCu2lCKJ06PFEngBcLMgUMmVFhoINnZUqt0ouVRQNNv0qxNky5tBXTnL4Y/g+6voyiyO3MAMmxWofVbVxr1MijOIOvheVKVhbr4VeLSpS5/FLxcOpCRkth36hbGvQHhUPtYNSYstFUzR+bgLdceoL1olCMitUdtShDUlowLiMlf9oQp7I8bKYFBOQYMXbioiUutJpxHwVB5+FE4E2YCTVHdK6WQsocwxDVpOEt2m+8+Vudrc8uR9qH+1PyHyXcu7RTzPZFLxt2o+jyvDs4H/S7dJjQbpoNej04HyZJnwZLL238o3SkKpFqOeJKUdxgmOaF/YQQZkjO6hIamyO9USBo2bc/+PCBnIXkTtOE2CkQeEFqJKHsGaOSKp3EPxEk0yonC1VqgocBpJkqO5ZYoUTTuU8iGZcRlrD/6Q2r7+ux5Bk5ydLYi4WKTyagQ1ZqzKYNLdUTsLHAMNLAKXkdS4KfTY/tjodWVSk9OcWwy7EcS6TXC8lvL9wSQzMQC4JoIC/sosL1SxNpHRpsqeV7DqT25smisK6Gd5D1IfsheUIxbyDjkjvZSS/qPlQgCVbHWJo5t2x68lN0PHz/NPpM6s2msjJqoA7ErcljmuZcVvdXOwBhWPF23zVJ8GF/vt7uEAu+drd93Vj36tDp3k2YENCF5gYOQ9sEtWL/6z7yrB13I2NWGqty0Ab0DL2FbZRg+4VgLXRg22TYuospWb2qlP7PZJp7/0zEMw5z0DsF/f1xdLNb0ak2aUtJpxpB63ZSerdwmFnjE7nQCQrXxu2eFPn1QzmqsLWs1TcYsXsixt1Cj/7YU7mmaFW5RWFaPbTe3YSLQ+iZLvMYu+pPqLf426OrWz4kq9vT/g3gov0NzLXc/ao+wISyxW5hsdths8b6WbPcFXXL1nXAplsMQvKg1DMpC98PnaeaHxktDLm/IVz6lYlQCRXEzzfrznCnm5gS5uTODQ6PgOWTntReFsaHj9eOT+sW+Q5076L6rp2G2OVqD24OrK46K56nm91rfaoaQHyTedcVz0NyS4VwnX4st/W8YLlcfu+sJtBqZvbz655h9Dg7H2fn4+x8nJ2Ps/Nxdj7OzsfZ+Tg7H2fn/+/snALjBmedJ8fzvvnn2S0sEAlnb01zpZ/dlLS2Lf8FQCKRZ8MWAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT IN18d6eb7a93dc4b10b439f04bdd03d6fb"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=adc462f7-0085-4543-a7ba-df422e57bb3a</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>mapped_role_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>variable</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</model>
+        <model_id>6d26ea2e9358c710b439f04bdd03d644</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_6d26ea2e9358c710b439f04bdd03d644</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:44</sys_created_on>
+        <sys_id>18d6eb7a93dc4b10b439f04bdd03d6fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 05:19:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:22</sys_created_on>
+        <sys_id>68fc9d3a93dc0b10b439f04bdd03d64c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:22</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:23</sys_created_on>
+        <sys_id>b4fc9d3a93dc0b10b439f04bdd03d696</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:23</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:22</sys_created_on>
+        <sys_id>e0fc9d3a93dc0b10b439f04bdd03d653</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:22</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_6d26ea2e9358c710b439f04bdd03d644"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27800</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>omniboard_deletion_engine</internal_name>
+        <label_cache>[{"name":"Created or Updated_1.current.amount","label":"Trigger - Record Created or Updated➛License Audit Record➛Amount","reference":"","reference_display":"Amount","type":"currency","base_type":"currency","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"amount","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["cost_saved"]}},{"name":"01f620a6-e637-4489-a327-cfa98a36ec05.Record.sys_id","label":"2 - Look Up Record➛User Role Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"sys_user_has_role","column_name":"sys_id","usedInstances":{"f31aac1f-7e9f-4ce1-82a2-9edae52317c7":["role_sys_id"]}},{"name":"Created or Updated_1.current.review_status","label":"Trigger - Record Created or Updated➛License Audit Record➛Review Status","reference":"","reference_display":"Review Status","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"review_status","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Auto-Revoked","reference":false,"used":false,"rawLabel":"Auto-Revoked","selected":false,"missing":false,"value":"auto_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Manually Revoked","reference":false,"used":false,"rawLabel":"Manually Revoked","selected":false,"missing":false,"value":"manually_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Newly Assigned","reference":false,"used":false,"rawLabel":"Newly Assigned","selected":false,"missing":false,"value":"newly_assigned","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Pending Review","reference":false,"used":false,"rawLabel":"Pending Review","selected":false,"missing":false,"value":"pending_review","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Retained","reference":false,"used":false,"rawLabel":"Retained","selected":false,"missing":false,"value":"retained","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Created or Updated_1.current.target_user.name","label":"Trigger - Record Created or Updated➛License Audit Record➛Target User➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Created or Updated_1.current.target_license","label":"Trigger - Record Created or Updated➛License Audit Record➛Target License","reference":"","reference_display":"Target License","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_license","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Agile Team Member","reference":false,"used":false,"rawLabel":"Agile Team Member","selected":false,"missing":false,"value":"spm_agile","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Administrator","reference":false,"used":false,"rawLabel":"CSM Administrator","selected":false,"missing":false,"value":"csm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Contributor","reference":false,"used":false,"rawLabel":"CSM Contributor","selected":false,"missing":false,"value":"csm_contributor","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Enterprise","reference":false,"used":false,"rawLabel":"CSM Enterprise","selected":false,"missing":false,"value":"csm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Professional","reference":false,"used":false,"rawLabel":"CSM Professional","selected":false,"missing":false,"value":"csm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Standard","reference":false,"used":false,"rawLabel":"CSM Standard","selected":false,"missing":false,"value":"csm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Draft","reference":false,"used":false,"rawLabel":"Draft","selected":false,"missing":false,"value":"draft","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Employee Relations Specialist","reference":false,"used":false,"rawLabel":"Employee Relations Specialist","selected":false,"missing":false,"value":"hrsd_er","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HR Administrator","reference":false,"used":false,"rawLabel":"HR Administrator","selected":false,"missing":false,"value":"hrsd_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Enterprise","reference":false,"used":false,"rawLabel":"HRSD Enterprise","selected":false,"missing":false,"value":"hrsd_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Professional","reference":false,"used":false,"rawLabel":"HRSD Professional","selected":false,"missing":false,"value":"hrsd_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Standard","reference":false,"used":false,"rawLabel":"HRSD Standard","selected":false,"missing":false,"value":"hrsd_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Admin / Developer","reference":false,"used":false,"rawLabel":"ITSM Admin / Developer","selected":false,"missing":false,"value":"itsm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Enterprise","reference":false,"used":false,"rawLabel":"ITSM Enterprise","selected":false,"missing":false,"value":"itsm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Professional","reference":false,"used":false,"rawLabel":"ITSM Professional","selected":false,"missing":false,"value":"itsm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Standard","reference":false,"used":false,"rawLabel":"ITSM Standard","selected":false,"missing":false,"value":"itsm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Legacy Approver","reference":false,"used":false,"rawLabel":"Legacy Approver","selected":false,"missing":false,"value":"approver_user","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Administrator","reference":false,"used":false,"rawLabel":"SPM Administrator","selected":false,"missing":false,"value":"spm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Enterprise","reference":false,"used":false,"rawLabel":"SPM Enterprise","selected":false,"missing":false,"value":"spm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Professional","reference":false,"used":false,"rawLabel":"SPM Professional","selected":false,"missing":false,"value":"spm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Standard","reference":false,"used":false,"rawLabel":"SPM Standard","selected":false,"missing":false,"value":"spm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"01f620a6-e637-4489-a327-cfa98a36ec05.Record","label":"2 - Look Up Record➛User Role Record","reference":"sys_user_has_role","reference_display":"User Role","type":"reference","base_type":"reference","usedInstances":{"60d848b5-2a7d-41f1-ae49-f00c459a2699":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created or Updated_1.current.target_user","label":"Trigger - Record Created or Updated➛License Audit Record➛Target User","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_user","usedInstances":{"01f620a6-e637-4489-a327-cfa98a36ec05":["conditions"]}},{"name":"Created or Updated_1.current","label":"Trigger - Record Created or Updated➛License Audit Record","reference":"x_1977323_smartlic_license_audit","reference_display":"License Audit","type":"reference","base_type":"reference","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["record"]},"attributes":{}},{"name":"Updated_1.current.target_user","label":"Trigger - Record Updated➛License Audit Record➛Target User","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_user","usedInstances":{"0456e78d-f5f8-4893-9dc9-2e26410cdd06":["conditions"]}},{"name":"Updated_1.current.target_license","label":"Trigger - Record Updated➛License Audit Record➛Target License","reference":"","reference_display":"Target License","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"target_license","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Agile Team Member","reference":false,"used":false,"rawLabel":"Agile Team Member","selected":false,"missing":false,"value":"spm_agile","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Administrator","reference":false,"used":false,"rawLabel":"CSM Administrator","selected":false,"missing":false,"value":"csm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Contributor","reference":false,"used":false,"rawLabel":"CSM Contributor","selected":false,"missing":false,"value":"csm_contributor","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Enterprise","reference":false,"used":false,"rawLabel":"CSM Enterprise","selected":false,"missing":false,"value":"csm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Professional","reference":false,"used":false,"rawLabel":"CSM Professional","selected":false,"missing":false,"value":"csm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"CSM Standard","reference":false,"used":false,"rawLabel":"CSM Standard","selected":false,"missing":false,"value":"csm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Draft","reference":false,"used":false,"rawLabel":"Draft","selected":false,"missing":false,"value":"draft","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Employee Relations Specialist","reference":false,"used":false,"rawLabel":"Employee Relations Specialist","selected":false,"missing":false,"value":"hrsd_er","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HR Administrator","reference":false,"used":false,"rawLabel":"HR Administrator","selected":false,"missing":false,"value":"hrsd_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Enterprise","reference":false,"used":false,"rawLabel":"HRSD Enterprise","selected":false,"missing":false,"value":"hrsd_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Professional","reference":false,"used":false,"rawLabel":"HRSD Professional","selected":false,"missing":false,"value":"hrsd_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"HRSD Standard","reference":false,"used":false,"rawLabel":"HRSD Standard","selected":false,"missing":false,"value":"hrsd_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Admin / Developer","reference":false,"used":false,"rawLabel":"ITSM Admin / Developer","selected":false,"missing":false,"value":"itsm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Enterprise","reference":false,"used":false,"rawLabel":"ITSM Enterprise","selected":false,"missing":false,"value":"itsm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Professional","reference":false,"used":false,"rawLabel":"ITSM Professional","selected":false,"missing":false,"value":"itsm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"ITSM Standard","reference":false,"used":false,"rawLabel":"ITSM Standard","selected":false,"missing":false,"value":"itsm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Legacy Approver","reference":false,"used":false,"rawLabel":"Legacy Approver","selected":false,"missing":false,"value":"approver_user","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Administrator","reference":false,"used":false,"rawLabel":"SPM Administrator","selected":false,"missing":false,"value":"spm_admin","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Enterprise","reference":false,"used":false,"rawLabel":"SPM Enterprise","selected":false,"missing":false,"value":"spm_enterprise","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Professional","reference":false,"used":false,"rawLabel":"SPM Professional","selected":false,"missing":false,"value":"spm_pro","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"SPM Standard","reference":false,"used":false,"rawLabel":"SPM Standard","selected":false,"missing":false,"value":"spm_standard","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"0ecd7429-baee-4098-9ed1-4574a18708a2":["log_message"],"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Updated_1.current.target_user.name","label":"Trigger - Record Updated➛License Audit Record➛Target User➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"Updated_1.current.review_status","label":"Trigger - Record Updated➛License Audit Record➛Review Status","reference":"","reference_display":"Review Status","type":"choice","base_type":"choice","parent_table_name":"x_1977323_smartlic_license_audit","column_name":"review_status","choices":[{"label":"-- None --","image":"","reference":false,"used":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"image":"","label":"Auto-Revoked","reference":false,"used":false,"rawLabel":"Auto-Revoked","selected":false,"missing":false,"value":"auto_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Manually Revoked","reference":false,"used":false,"rawLabel":"Manually Revoked","selected":false,"missing":false,"value":"manually_revoked","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Newly Assigned","reference":false,"used":false,"rawLabel":"Newly Assigned","selected":false,"missing":false,"value":"newly_assigned","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Pending Review","reference":false,"used":false,"rawLabel":"Pending Review","selected":false,"missing":false,"value":"pending_review","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}},{"image":"","label":"Retained","reference":false,"used":false,"rawLabel":"Retained","selected":false,"missing":false,"value":"retained","parameters":{"name":"x_1977323_smartlic_license_audit","dependent_values":[""]}}],"usedInstances":{"965854b3-e9b4-4385-a0e2-1aef75a6f1ff":["log_message"]}},{"name":"flow_variable.mapped_role_id","label":"Flow Variables➛variable","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","usedInstances":{"0456e78d-f5f8-4893-9dc9-2e26410cdd06":["conditions"],"01f620a6-e637-4489-a327-cfa98a36ec05":["conditions"]},"attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"adc462f7-0085-4543-a7ba-df422e57bb3a"}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛License Audit Record","reference":"x_1977323_smartlic_license_audit","reference_display":"License Audit","type":"reference","base_type":"reference","usedInstances":{"fc2857e2-e1e2-47b6-ac10-1fe400587424":["record"]},"attributes":{}}]</label_cache>
+        <master>true</master>
+        <name>Omni-Board Deletion Engine</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Omni-Board Deletion Engine">6d26ea2e9358c710b439f04bdd03d644</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:33</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>97fc117a93dc0b10b439f04bdd03d6c1</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_variable_value action="delete_multiple" query="document_key=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT IN57fc117a93dc0b10b439f04bdd03d6c3"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>97fc117a93dc0b10b439f04bdd03d6c1</id>
+        <name>Omni-Board Deletion Engine</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>57fc117a93dc0b10b439f04bdd03d6c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:34</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=57fc117a93dc0b10b439f04bdd03d6c3"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT IN27fc517a93dc0b10b439f04bdd03d609,a3fc117a93dc0b10b439f04bdd03d6fe,dbfc117a93dc0b10b439f04bdd03d6de"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</model>
+        <model_id>97fc117a93dc0b10b439f04bdd03d6c1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>27fc517a93dc0b10b439f04bdd03d609</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:41</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=27fc517a93dc0b10b439f04bdd03d609"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</model>
+        <model_id>97fc117a93dc0b10b439f04bdd03d6c1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>a3fc117a93dc0b10b439f04bdd03d6fe</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 05:19:53</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a3fc117a93dc0b10b439f04bdd03d6fe"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</model>
+        <model_id>97fc117a93dc0b10b439f04bdd03d6c1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>dbfc117a93dc0b10b439f04bdd03d6de</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:41</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=dbfc117a93dc0b10b439f04bdd03d6de"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT IN63fc517a93dc0b10b439f04bdd03d622"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <generation_source/>
+        <name>Created or Updated</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>63fc517a93dc0b10b439f04bdd03d622</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 11:45:48</sys_updated_on>
+        <trigger_definition display_value="Created or Updated">a45d9180c32222002841b63b12d3aea7</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VaWW/bOBD+K4KedgHvQodtxelTNsc2QLYBHLf7UHQFiqRsojLlipRSb9H/vkNdlnU4PpSuGyCHSYoz8/Gbb0gxH7/pAfJooF/qM+QFVB/ojEsacRTM1isKzVI1uxwtVd8ScYJkGK31SxnFdKD7Ubic0eUqQBIG+ygQ0BhGhEb6pTnQExTE9Gkt7gnMBM+n0+Rz6nk3fP7qmhPHsS3bFUsUyYBhF74pF9RFMWEShhImwMj6Q/7EQ9atXeXdeMECElGuX378NNBXKAJDUjnxrdbFlCfYN6k5uTCwbcGXYVgXQ9Mb255pERtRZMCEdVRqnssWcDZh06+SckJJiUgDt4gi8siDdWXEV8H+hTkvDNXrU/AY0wy18qObo5A140UIKDyuJAt51pJ5l3WGQbzk7zKvFX7UR3EgC/ygJQZ0CV0pR7ks/fCfFuHztDB4x3gaU94ZhBgF5SckZcS8WFKhYPZZAIC7GSIijKPU++nt9eP0xv37anb99nbqTm+fZtP769ntjf49jcv9EqsZMw9zX9wsnO/lot8xGqhl4/HSA28GusARW8krLFlSsO77YMPk65ADKxQqDTbjoktss7mIfhedDaOT0LhisSB1RBNGn10hkYzF9durd39C8I8olqELXeFnSv55nLYPAscAlmBdDtwa9uHqIR95MPEdwyHE7CI+9irEr4LYEqVswbMK1K4UyFu6c2BoGP9TFuSqdmwSLENCg5vNdDp0zueQFoyvYqkwKnBxwxWNFB7wnL5Z0Tf577vp419vSj7Ac8+IS+ECdxAhbgV1ZQJieSmbMkyaKfVyMkUxhynccj2bKZUuQLkSD0xA4B9BEAqU0ymh33/Ip5zGXAth4eGHhuMIQJZaIaz+/RLN87Xxn2hAsayQyH8vqp/+YkIwPq94XRpNUWnYLM0BGbUipMy2ONH4pz71pAl6UgOzVg8PVgITDy3D9saGo3TAhD9903CMEfKJbRjeRUUJms50eilrlOhREQ7TA5FSMNiDcHVgc5eNag7sRZ5km3lF6IoYuexc9+Oa2ZNrlnKtJp/2QfpZkjFrvtnm5K7Qet58IJIgeILsK4dqwB665wfhM0j3EZrnIfx5HoUxJ3URUnNqjGubEdovOX6/9qh/fhjR3Q5sjzgn5dvAXhAX8XUPmmfZJnXGw7EBUmcrlRtNJh5Glu87Y4eaZk3zNm60+nbGWvcCx5I2knbpXitdkjaWHaB4JzjYUL+DHTxd93I6tqpe1vdz6NvzgnIXXI3guC1kU+bmASO06Os3xxumk01Wn5rn2JuQ0chxsAMnHMhzf0g9ZA6tEZo4Y5v6tTxvuLLLTdmCzCuee8RapOY7NOB91nVebwJek6yCSqlKz+EVmcNONX0GZUYqVVEthpZKSRhp70L+2/1mnPZEodilR96+SvM+XqiF1V7XDS+Ui8beAEz/Ae1bptWesgOVszs01UiSbMd6qrAgy0IT0+4QFmfcJiwbZ7rdPNOtxJ55kXRmWNueYl+aJ63Z0rkJOIK4NXJUdwc7ti99gWL2Dor1eqDYJ2+ZigzsPCke4+xPVLjSPcQp1UvZpG7oVyX7JtSgQwMjGvO1/F0jHPy9tSYXFCANYG8MBjVl/VStrtaOpislg3+sI9luu1HDoFnLt03nV55qVOj3jEuJjSekq0QNnc69b3edqnWfabE6OBeSttTaWbEOm7c+Z2vNqhB1mwd7VqNeo24vSadF3VqUXor69HKz64Te4sX5FxLl9CxbhiPKR8hx7ayB+7xsiTn7ElMXLxCfZxcphaE7wJkivNCyIVo2pM8CEDyjtdDrlQhIq/Iif+0MDZAhPNOvvizThEbrRqyqUYtXRBWHH1x8rB3Fp7iHFDKCJ+frSuYVcRz4LtWbQHaNDGybpt24SR5Vb5K3qdvtUEdhsY4tLAuWXsFWzOfLI9mSpjJW3qNqSyTxgoqBBmuY3lmkKsciIdPRv+s9Hqpw9W4nz8y2utOZO0lX2nXq+I50SOqJ1CbcLdSu06cq3TuPTzvCN3sJ3+ojfPu48IcnV64ckfbSlaPXb7k64j9x9PZ69ek/CXMfOk8mAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create_or_update</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT IN106aff3693908b10b439f04bdd03d682,1ad6af7a93dc4b10b439f04bdd03d661,27fc517a93dc0b10b439f04bdd03d61f,e18def3a93108b10b439f04bdd03d6d6"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Global Role Deletion">3899f3f293908b10b439f04bdd03d6ae</action_type>
+        <action_type_parent display_value="Global Role Deletion">ee3833fe93508b10b439f04bdd03d6f2</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>3899f3f293908b10b439f04bdd03d6ae</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 06:45:13</sys_created_on>
+        <sys_id>106aff3693908b10b439f04bdd03d682</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 06:45:13</sys_updated_on>
+        <ui_id>f31aac1f-7e9f-4ce1-82a2-9edae52317c7</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6VSwW7bMAz9F51tw44dx85taFFgwLYC7dZLURi0RCUCZNmV5LRZkH8fFTvZ0O5QoEc+8ZHvPerxwJRgayZ5XctcLuq8Tqs2S9sir2VatEKkuSjbJYuYgQ6p0/YaG7d3DfEitgM9BvRwSDNZLlIoYyzzVVwUVR1DvljFXEJdQV4iT5fJHfLeimSiH480QCg3aNg/fHYO3yotLBq2fnyK2ACW1Hq0bH148/RRuxpa1O/8/jcEvx8C6LxVZjPX32b6/RkkvUFOFjF89WgEkg4J2mHEOjACfG/3bO3tSIBFELdG7y8dW2U8DWOh99Wp37SuStM0dEokaxyn10vZzLlOsLwGD6Rk5H60cyvf9oqjm0IRKGHU/upfbGq4HbzqzUTx0Oozu9djZ35MabDLgPMZCRkdicAhOA3aZyPyftu/3J1V3ihzCmV+1D0HfanAU3Tt6IOeAxvVzzcpT8i7nFFjRxubDoaBkGaw/U6dtpDoLtloKhKp+xdS59TGJMCDw4QuAMkN4dcn+AGsCna/0xgih3W/jHoe8Wv4P9lyWdVVXsYcgMfFKqNPWleLWGSY1pwvecErdowYfZErDc79DYou1DyPweYU2xxQM2UcKNyqwX8hUTucszg+/QE3ies8pwMAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=106aff3693908b10b439f04bdd03d682"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:52</sys_created_on>
+        <sys_id>1ad6af7a93dc4b10b439f04bdd03d661</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <ui_id>fc2857e2-e1e2-47b6-ac10-1fe400587424</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVXWvbMBT9K0HPwdhxP/NWGgKDroV260vXmRvpOhHIlqePNFnIf9+1LSehDVkK3UNZwBDdD+mc43uspxWTgg3ZCYo4uUzOeJqk6SCOBxcnyeQsnSQDkQJiwvqshAKp0iDXRtB6DsrXgdXq2iA4FD1tet8rUf/Nkoh7Y7B06zWVCmkrBcvH0EERPpNKUJ4Nn577rAJDmzs0bLh6lToWnYIJKiq97+C9huuWVb0WmvuCcGWyC96EzlHI9L6MKENNNZwk7jNcOCwFEpAclMU+K6Akltos2dAZTwHiL+5KtdxUzGTpWqIFLKz8TSefxHVdjsSMBxE2yywI1IbzETh4oJ2582ajl5YcbauJwBy8cte7sbbgrnJSl22Lg4nqurXyRXnbKsI2G+y8D28JBFY1zxp5Syt/mOmX+w7kWJaNJIGi0hzUZgXOGTnxroazYqiw0biAqpLlNKuMnsummaAU0VTRIsqVfqEzrZyWEfAad0SqQjSm+KgJP4KRNYmvtA01r/vMLu21Amu3VEjD7JevkbTEAoWsUaGRIGsmoW7mRlbuio6aYwC+7of5n5wemjB+uR2onT23HlhkyeX5eTpIM1uAcUryjB4sSVXwQrq3Hrhp072rkH6fIY6A2xniWzMG++EHT7yJ3ez29m7bRHDE6Yc54uIzOSLQ+PSW+JsR4sHBT+3OJDWzb3dM4MBM0XWD/8PHcSqEgdz95Nq6zMIcRRs9fGVEUGi//+b4F0e8z3lH6NM5byxRCbtHsM52WBA3h1kr4CvrhWTvMSQ3F9KH+S85i5vfJ3Lhf3MvPf8Bayt0HpkJAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1ad6af7a93dc4b10b439f04bdd03d661"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Log">5bc1bcc6531003003bf1d9109ec587d4</action_type>
+        <action_type_parent display_value="Log">0e0ae8c2531003003bf1d9109ec587c8</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>5bc1bcc6531003003bf1d9109ec587d4</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>27fc517a93dc0b10b439f04bdd03d61f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 05:49:02</sys_updated_on>
+        <ui_id>965854b3-e9b4-4385-a0e2-1aef75a6f1ff</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VUUW/aMBD+K5GfISJQ1pW3iq7SJNpKRWMPVRUZ+wLWHDuzHShj+e87JwayFm0g9WWaxAP+8p19391397QlgpMRGc5ZMmfsw3CQ9HoD/M2zhF8lvStgw4+X/JJ0iKI5IFPqRSphBRKhFZWlx4TKNB65sIWkm1lAPzcoWwrJDSgyenrukIIavMeBIaPtq0+nJiLpHF8fkUnI4khiblN4iC21YBDOkxA23oHacJ9Gr0PgxYHigO9nVFrokJwqTp02mz1igPIHJQ/AUiiHtxFPfrHiB7530fO8DFARg+bb/piG4jRwdkMdnTpTMleaQG2StViL7V5itxvdawVRt9uqdiv1qnPghnK/6klgJm3mV2qUUIsWeY3Igdxvkz8Zo02LCuEcuIMKO8cho6V04/MVJCcr6J+jYHCGgguvoCn+Q+GERjeSxHuGzuWuNVqWubpvfEb2emev7N+gN0enoLRoASi8zbxvgomy6VKvH3ceuRWqzih8lJpRuT9R54yYl87Xd0tAQo4XpTktCixEWhi9EnUwJpvHC4mHOJN6jY9asVAxZV5ajK6m8S3iNzU8o0Z4mXd4DQZXHWI3diyptQexaOH0e+kzaaQHDWldqDqEGVG4a3xgBSFdX/56nPuDP40zDH8f3xyspQto9WqCXVEWokdY6W/AR1EUbbdjHEYHPNIm+lJw/zdNYlYaLKKLHTULcKlsAqsqypCG1TcnBnpq7HPC0J/R1FFX2tFfQg2sBKxTW5Or6u0q/FdlnLe7T2j2bibv9p0+2v6wvy1avp7y9v6e7sDdCnm3/d0fDt9ngR9biW+XzFk75v9bIc+/AI/5jNScCAAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=27fc517a93dc0b10b439f04bdd03d61f"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>9d09f99587003300663ca1bb36cb0ba3</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:49:02</sys_created_on>
+        <sys_id>e18def3a93108b10b439f04bdd03d6d6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 11:54:40</sys_updated_on>
+        <ui_id>01f620a6-e637-4489-a327-cfa98a36ec05</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VY227jNhD9FUHPjiv5JjtvRQIDC2w3QC77st0SlEjFRGlSS1LOJob/fYeiJKu2YluoUyTom8UZkmdmzhmN/G3tM+Jf+mQWzNLZbDyNgmA4DILJZJjgMI6HkyQOYjzye77ASwqeBsecwuMK89w+62eNck0VWmCNlCxshOmM4+evpcsDmL1bZ0oWjBNFhX/57XvPz7CCUw1V/uV6x3QqLI5jysH1vsS1A9M8Z/UjKmxu7XNzm/fFGaQiFkrQ8+lPQwWhgCHFXNOev8SCYCPVc72iKCY3gm8XFkwYONG3zj81e4F7p4H1SylElVBnqx9RmSW3nF5jg++MyhOTq9I1WUiWUO3yQWiKc26ummvO4SYzTAq3xYXtdkueL8UXlw6/PqAqCqxA2RChmQ3UIi/DSO8W8um2QjlnoshJaeQywbx+wsYoFufG4ln7lNMlHISWOMuYeESZkitWbAYsy/4jh4d+yuUTXKrZo+jjxALvQ15xfw7r18XyV6yYjeIPOAY2AyDGgSHIlVDLXBWpXKGE57owKCy0O8vf9CwhrzjWehs5pBz9yC1ul4cyYuSSZrckimXmdzhiRcvgNr1KGeODFJxtKZdIQZhFoRvysNL4M4etZL2+AsoYSjypvIeM2J8o7Ce5gkSbvsHqkZpCSpvNX1ZI1bYiZasyK32bXdhoHRAjm82+3P6LKzvK+HgOKxlfNZPYlthS0Htrn9sOKAUdnk3QoyD4SJKGy9+fortr1KXgiFBDcpBkZMsnLZVBLpcNpe4LqTPPT4BQ8fzGMtOLn19DVdI8ZZSTtvfW3Bp23luD/+d7612SHAAR5KrHBGeiGEIA6Fuxf3yQenG4w7OCXo0hzq5hnexrAHtGei+dlXACnEoJd3C3d+/wtECs+n1Bmd1eXy2WAhieTQDDwXkEsK7DrBPZkvNq7rTVrPxfrD/e9QcKNjaEmzaBdboz7HrnYLMv4GEnBTfJ5izXr3DuzAPqK4rsvWULWMDW8j7k9IueGIGxa3t75UWkecL87zZ7yThUFaoI7w2G3fDg91bcGHZZipZQOZbBTKhoAuTQCCuKUpkLgspp/B9jMOReaVM67zeaWwr6EZ4EYXpmQb3C26u9O76Ij8dRpfJT6lWBlLdpDwLxikC8OpBuYXdpWqMzDqfnblpzzHhRDfjQyhrlpEpJ9UrjOlLIA4w4saudCCo8K6h/3/baJNDa/o5g/RBf7edvTQnF8WiAJ9EwDIMgDEgUTKMonE7idIKjUbrVKEJaJNBN4eQUqALHo4oaVZ3D/f5TNttufeYEUBUDr6WwX9eDyHgWFZTXq1Adx132k1jCJzgWOw3lHpD/Ni/eCDVdx++uqXyIv7Bydr+babfUmuu3Ghty9iDYj5x+shSb0mAwDUlyMY3C6GKUksnFjODxBZ7F42hIaDJKzzkJfP8FzDA71hIWAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=e18def3a93108b10b439f04bdd03d6d6"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT IN16d6af7a93dc4b10b439f04bdd03d67c"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">58d62f7a93dc4b10b439f04bdd03d60d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</flow>
+        <flow_variables_assigned>mapped_role_id</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>1</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:52</sys_created_on>
+        <sys_id>16d6af7a93dc4b10b439f04bdd03d67c</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <ui_id>8f2f7a39-fa7c-4d48-ad61-cd61e2beaa28</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1YTXPjNgz9K6xOyYyjVWznY5PTTtKkmcl2O3G6l3pHQ1GQzYYitSRlR834vxcUZTtxbEe99CQfbBEEgYcHUMD4JVClLUprHtUXY/hEBhd//egFXDoZPr8EPA0ugqAXSJoDPuW0KCCNtRIQ41YvmFFRgldJuSkErb6vJWzKRaqhsVpQjUYs6ODiZWOr9nJ8np5CckY/D1I2TI6jZDj4nEXDJE2jQXqaJWhQ0AQEqs6o5jQRsAeYrQonN1ZzOWnW983x0VKodOrgRL0Ani3IFBBHRoWBHhqUKbVKVyuJBpp+k2ItmHJpfaA5fTb8H/R3HkWR08wAY2MNDatl3FDkxdk1tRShlMyWesWY4gyMZyWFjJbCXr2WeYVvheVK+iO2JsKfVqLM5e+ekWBl4FVGSoMgoHChOuxNINloquYPS5Q3XNasNJtCMSpWK2qRu6S0Ds9LUPLHDZq95B3RICBHj7FLE0riQqsZr70g6DycCFyEmVBzROfqMKTMRRhiCmh4g/LrWvy9yftXl21du/tT8p8l3LkColg3p/3s7CiKzk+OhifDwRE9S+hRmg37fTg5S5IBDRa9wFTmSlBj1kRhhuKfpQvT09YQFHuO3RGmeWG/IKgZHsGcwVLmaNgoPpTs0w8+fSLHIbnVNCF2CgSeMViSUPaEXolPMKnvFcm0ykmlSk3wMIA0U2XHEqufaDqv00rGZYTXo/7pn/nvy7HkGTnI0rimD3MwmYAOWakxvza0VE/AxgLdSAOH5GUsCX42LbY7Hlrlk3xwiG4XYzmWGF4/JL8+c0sMzUBUBNFAXtjK4/pl6WntGvAGyLcxkMZaHSwS65K1I9ja5SAkj0jmNWRcckc76UdH9x4kwXoZSzPnlk0P3nnHw3ePo6+kUTZeyqiBxhG3Jo9pmnPp1xc7AKFb8VrvkiT4zni63G4Qr0Bjbvu+se4NpNO9SpgQ0IXmBj6GtglqFf3VvuBZu9iNjFlprMpBG9AztBa2YYLtJ4K14IFto2GrFlPSv7yU/s/BLNf1nYhnHOagdxL628PoejejU23SlpRONYLW7aiszcLHkS1tYix0gsS1MbsnRfX+Rzny2FrW6iuM2IQR426iR3/sqVxTtKrcojCtLm1tbsLFR+iZLvMY++w71Fvs7eHVbX9Eq9Np/wZw3v4G5prwflbvYUJZtZtY7HbYvrF+1lHu8rpFde1w2S2GIblX6omURd0PnaUmPjKqDLm7JlzWOxOhEipIPfGsO8OtXvqUMCe3bpR4ACyf9KCxUpnafbw2fNi0yDeg+6f+uzEaYpdrLLgZ0z/1VnEebnav9Sk/ktRN5k1XPAnJDRXCdfqx3NbzgsVi8aO3mm67CbybwLsJvJvAuwm8m8C7CbybwLsJvJvAuwn8/5jAU2Dc4PTz6OK8W/4b7jYqRMLZa9Fc6Sc3N61li38Bjsdf9lcXAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=97fc117a93dc0b10b439f04bdd03d6c1^sys_idNOT INd2d6af7a93dc4b10b439f04bdd03d652"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=adc462f7-0085-4543-a7ba-df422e57bb3a</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>mapped_role_id</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>variable</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Omni-Board Deletion Engine">97fc117a93dc0b10b439f04bdd03d6c1</model>
+        <model_id>97fc117a93dc0b10b439f04bdd03d6c1</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-21 05:19:52</sys_created_on>
+        <sys_id>d2d6af7a93dc4b10b439f04bdd03d652</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-21 05:19:52</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>2bfc517a93dc0b10b439f04bdd03d605</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>a7fc117a93dc0b10b439f04bdd03d6fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:34</sys_created_on>
+        <sys_id>e3fc517a93dc0b10b439f04bdd03d610</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-20 19:17:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_97fc117a93dc0b10b439f04bdd03d6c1"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>6d26ea2e9358c710b439f04bdd03d644</sys_id>
+        <latest_snapshot>97fc117a93dc0b10b439f04bdd03d6c1</latest_snapshot>
+        <compiler_build>glide-yokohama-12-18-2024__patch11-12-16-2025_01-04-2026_2103.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=6d26ea2e9358c710b439f04bdd03d644^sys_idNOT INc40d517a93dc0b10b439f04bdd03d67e"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.Every</binding_strategy>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"c40d517a93dc0b10b439f04bdd03d67e","name":"plan","plan_signature":null}}</plan>
+        <plan_id>6d26ea2e9358c710b439f04bdd03d644</plan_id>
+        <snapshot>7121b91f93dc0f10b439f04bdd03d603</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-20 19:17:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c40d517a93dc0b10b439f04bdd03d67e</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-22 10:01:42</sys_updated_on>
+        <trigger display_value="">732fbcc793d88b10b439f04bdd03d63c</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=6d26ea2e9358c710b439f04bdd03d644"/>
+</record_update>

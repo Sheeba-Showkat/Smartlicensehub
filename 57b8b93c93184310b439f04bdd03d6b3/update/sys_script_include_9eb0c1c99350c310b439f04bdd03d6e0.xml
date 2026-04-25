@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1977323_smartlic. LicenseAnalyzerUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Core logic for scanning and identifying inactive software licenses.</description>
+        <mobile_callable>false</mobile_callable>
+        <name> LicenseAnalyzerUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var LicenseAnalyzerUtils = Class.create();
+LicenseAnalyzerUtils.prototype = {
+    initialize: function() {
+    },
+
+    /**
+     * Sourced from the 20 licenses identified in the Target License dictionary.
+     * Scans for roles across ITSM, HRSD, CSM, and SPM.
+     */
+    runScan: function() {
+        var daysInactiveLimit = parseInt(gs.getProperty('x_1977323_smartlic.inactivity_days', 90));
+        var cutoffDate = new GlideDateTime();
+        cutoffDate.addDaysUTC(-daysInactiveLimit);
+
+        var roleGr = new GlideRecord('sys_user_has_role');
+        roleGr.addQuery('user.active', true);
+        
+        // --- 1. THE ENTERPRISE PIPELINE FILTER ---
+        // These roles trigger the scan for all 4 major categories.
+        var targetRoles = [
+            'itil', 'itil_admin', 'approver_user', // ITSM
+            'sn_hr_core.basic', 'sn_hr_core.manager', 'sn_hr_core.admin', 'sn_hr_core.er_agent', // HRSD
+            'sn_customerservice_agent', 'sn_customerservice.customer_data_viewer', 'sn_customerservice.admin', 'sn_customerservice.customer_data_editor', // CSM
+            'it_project_manager', 'it_portfolio_manager', 'scrum_user', 'pps_admin', // SPM
+            'business_stakeholder' // Shared
+        ];
+        
+        roleGr.addQuery('role.name', 'IN', targetRoles.join(','));
+
+        // Identify users who are inactive based on last login
+        var qc = roleGr.addQuery('user.last_login_time', '<', cutoffDate);
+        qc.addOrCondition('user.last_login_time', ''); 
+        roleGr.query();
+
+        var recordsCreated = 0;
+
+        while (roleGr.next()) {
+            var rawRoleName = roleGr.role.name.toString();
+
+            // --- 2. THE 20-LICENSE TRANSLATOR MAP ---
+            var roleToChoiceMap = {
+                // ITSM / ITIL Group
+                'itil': 'itsm_pro', 
+                'itil_admin': 'itsm_admin',
+                'approver_user': 'approver_user',
+                'itsm_standard': 'itsm_standard',
+                'itsm_enterprise': 'itsm_enterprise',
+                
+                // HRSD (Human Resources) Group
+                'sn_hr_core.basic': 'hrsd_standard',
+                'sn_hr_core.manager': 'hrsd_pro',
+                'sn_hr_core.admin': 'hrsd_admin',
+                'sn_hr_core.er_agent': 'hrsd_er',
+                'hrsd_enterprise': 'hrsd_enterprise',
+
+                // CSM (Customer Service) Group
+                'sn_customerservice_agent': 'csm_standard',
+                'sn_customerservice.customer_data_viewer': 'csm_pro',
+                'sn_customerservice.admin': 'csm_admin',
+                'sn_customerservice.customer_data_editor': 'csm_contributor',
+                'csm_enterprise': 'csm_enterprise',
+
+                // SPM (Project/Portfolio) Group
+                'it_project_manager': 'spm_standard',
+                'it_portfolio_manager': 'spm_pro',
+                'scrum_user': 'spm_agile',
+                'pps_admin': 'spm_admin',
+                'spm_enterprise': 'spm_enterprise',
+
+                // Shared / Stakeholder
+                'business_stakeholder': 'business_stakeholder'
+            };
+            
+            var officialChoiceValue = roleToChoiceMap[rawRoleName] || rawRoleName;
+
+            // 3. Step-wise Anti-Duplication Check
+            var dupCheck = new GlideRecord('x_1977323_smartlic_license_audit');
+            dupCheck.addQuery('target_user', roleGr.user);
+            dupCheck.addQuery('target_license', officialChoiceValue);
+            dupCheck.query();
+
+            if (!dupCheck.hasNext()) {
+                var newAudit = new GlideRecord('x_1977323_smartlic_license_audit');
+                newAudit.initialize();
+                
+                newAudit.target_user = roleGr.user;
+                newAudit.target_license = officialChoiceValue; 
+                
+                // Calculate Days Inactive using LaTeX logic for precision:
+                // $$ Days\ Inactive = Current\ Date - Last\ Login\ Date $$
+                if (roleGr.user.last_login_time) {
+                    var lastLogin = new GlideDateTime(roleGr.user.last_login_time);
+                    var duration = GlideDateTime.subtract(lastLogin, new GlideDateTime());
+                    newAudit.days_inactive = duration.getRoundedDayPart();
+                } else {
+                    newAudit.days_inactive = 999;
+                }
+                
+                newAudit.review_status = 'draft';
+                newAudit.insert();
+                
+                recordsCreated++;
+            }
+        }
+        
+        gs.info('SmartLicenseHub Scan: Enterprise category scan complete. Found ' + recordsCreated + ' records.');
+    },
+
+    type: 'LicenseAnalyzerUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-15 06:46:09</sys_created_on>
+        <sys_id>9eb0c1c99350c310b439f04bdd03d6e0</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name> LicenseAnalyzerUtils</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_script_include_9eb0c1c99350c310b439f04bdd03d6e0</sys_update_name>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-20 10:51:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="15f34b9293d84710b439f04bdd03d661" extends="task" label="License Audit" max_length="40" name="x_1977323_smartlic_license_audit" type="collection">
+        <element label="Reminder Sent" max_length="40" name="reminder_sent" type="boolean"/>
+        <element label="AI Justification" max_length="40" name="ai_justification" type="string"/>
+        <element label="Amount" max_length="20" name="amount" type="currency"/>
+        <element choice="1" label="Review Status" max_length="40" name="review_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Auto-Revoked" value="auto_revoked"/>
+                <element inactive_on_update="false" label="Newly Assigned" value="newly_assigned"/>
+                <element inactive_on_update="false" label="Retained" value="retained"/>
+                <element inactive_on_update="false" label="Pending Review" value="pending_review"/>
+                <element inactive_on_update="false" label="Manually Revoked" value="manually_revoked"/>
+            </choice>
+        </element>
+        <element label="Days Inactive" mandatory="true" max_length="40" name="days_inactive" type="integer"/>
+        <element label="AI Confidence Score" max_length="40" name="ai_confidence_score" type="integer"/>
+        <element label="Target User" mandatory="true" max_length="32" name="target_user" reference="sys_user" type="reference"/>
+        <element label="Cost Saved" max_length="20" name="cost_saved" type="currency"/>
+        <element label="Assigned Role" mandatory="true" max_length="32" name="assigned_role" reference="sys_user_role" type="reference"/>
+        <element choice="1" label="Target License" mandatory="true" max_length="40" name="target_license" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Draft" value="draft"/>
+                <element inactive_on_update="false" label="SPM Enterprise" value="spm_enterprise"/>
+                <element inactive_on_update="false" label="HRSD Enterprise" value="hrsd_enterprise"/>
+                <element inactive_on_update="false" label="CSM Administrator" value="csm_admin"/>
+                <element inactive_on_update="false" label="ITSM Professional" value="itsm_pro"/>
+                <element inactive_on_update="false" label="SPM Professional" value="spm_pro"/>
+                <element inactive_on_update="false" label="ITSM Admin / Developer" value="itsm_admin"/>
+                <element inactive_on_update="false" label="CSM Professional" value="csm_pro"/>
+                <element inactive_on_update="false" label="ITSM Standard" value="itsm_standard"/>
+                <element inactive_on_update="false" label="CSM Contributor" value="csm_contributor"/>
+                <element inactive_on_update="false" label="Legacy Approver" value="approver_user"/>
+                <element inactive_on_update="false" label="CSM Standard" value="csm_standard"/>
+                <element inactive_on_update="false" label="HR Administrator" value="hrsd_admin"/>
+                <element inactive_on_update="false" label="HRSD Standard" value="hrsd_standard"/>
+                <element inactive_on_update="false" label="SPM Standard" value="spm_standard"/>
+                <element inactive_on_update="false" label="Employee Relations Specialist" value="hrsd_er"/>
+                <element inactive_on_update="false" label="CSM Enterprise" value="csm_enterprise"/>
+                <element inactive_on_update="false" label="HRSD Professional" value="hrsd_pro"/>
+                <element inactive_on_update="false" label="ITSM Enterprise" value="itsm_enterprise"/>
+                <element inactive_on_update="false" label="Agile Team Member" value="spm_agile"/>
+                <element inactive_on_update="false" label="SPM Administrator" value="spm_admin"/>
+            </choice>
+        </element>
+    </element>
+</database>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="SmartLicenseHub">e7eab1bc93984310b439f04bdd03d6e8</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>License Audits</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1977323_smartlic_license_audit</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_1977323_smartlic.admin</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-19 13:16:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bad0435e93984710b439f04bdd03d6cd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>License Audits</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sys_app_module_bad0435e93984710b439f04bdd03d6cd</sys_update_name>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-19 13:28:39</sys_updated_on>
+        <timeline_page/>
+        <title>License Audits</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sys_app_module_bad0435e93984710b439f04bdd03d6cd</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="SmartLicenseHub">e7eab1bc93984310b439f04bdd03d6e8</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>License Audits</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1977323_smartlic_license_audit</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><require_confirmation>true</require_confirmation><roles>x_1977323_smartlic.admin</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-19 13:16:55</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>bad0435e93984710b439f04bdd03d6cd</sys_id><sys_mod_count>2</sys_mod_count><sys_name>License Audits</sys_name><sys_overrides/><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>sys_app_module_bad0435e93984710b439f04bdd03d6cd</sys_update_name><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-19 13:28:39</sys_updated_on><timeline_page/><title>License Audits</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-513610114</payload_hash>
+        <record_name>License Audits</record_name>
+        <reverted_from/>
+        <source>5199604d935c8310b439f04bdd03d68f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-19 13:28:39</sys_created_on>
+        <sys_id>a683c39293d84710b439f04bdd03d617</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19da5edd15e0000001</sys_recorded_at>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-19 13:28:39</sys_updated_on>
+        <type>Module</type>
+        <update_guid>2683c3924cd84710037ac01bf61ffc16</update_guid>
+        <update_guid_history>2683c3924cd84710037ac01bf61ffc16:-513610114,0c434b52e2d8471095d0031aaa13d9ca:-1868225432,b2d0435ee9984710c6bd618dde7cfcd1:-513610114</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="License Audits">80e38f9293d84710b439f04bdd03d6a9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-19 13:30:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>2a9be9fca5ec4425a95a426c3a15a5e9</sys_id>
+        <sys_metadata>bad0435e93984710b439f04bdd03d6cd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>License Audits</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sys_app_module_bad0435e93984710b439f04bdd03d6cd</sys_update_name>
+        <sys_update_version display_value="sys_app_module_bad0435e93984710b439f04bdd03d6cd">a683c39293d84710b439f04bdd03d617</sys_update_version>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-19 13:30:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

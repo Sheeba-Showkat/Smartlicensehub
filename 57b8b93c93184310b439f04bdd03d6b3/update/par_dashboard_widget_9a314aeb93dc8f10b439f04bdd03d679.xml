@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="INSERT_OR_UPDATE">
+        <canvas display_value="">9f13076593500310b439f04bdd03d622</canvas>
+        <component display_value="Rich text">2d56f06d55f46bbd4e79b5e624beb940</component>
+        <component_props>{"html":"&lt;div style=\"display: flex; flex-direction: column; gap: 15px; padding: 10px;\"&gt;&lt;a style=\"background-color: #1f8476; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\" target=\"_blank\" rel=\"noopener\"&gt; 🛠️ Manage ITSM Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Dccc50f2a935cc710b439f04bdd03d6ce\" target=\"_blank\" rel=\"noopener\"&gt; 🎧 Manage CSM Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Db1184bae935cc710b439f04bdd03d660\" target=\"_blank\" rel=\"noopener\"&gt; 👥 Manage HRSD Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Dbce6c32e935cc710b439f04bdd03d607\" target=\"_blank\" rel=\"noopener\"&gt; 📊 Manage SPM Licenses (VTB) &lt;/a&gt;&lt;/div&gt;","id":"html","value":"&lt;div style=\"display: flex; flex-direction: column; gap: 15px; padding: 10px;\"&gt;&lt;a style=\"background-color: #1f8476; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3D17efe7ad93940310b439f04bdd03d695\" target=\"_blank\" rel=\"noopener\"&gt; 🛠️ Manage ITSM Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Dccc50f2a935cc710b439f04bdd03d6ce\" target=\"_blank\" rel=\"noopener\"&gt; 🎧 Manage CSM Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Db1184bae935cc710b439f04bdd03d660\" target=\"_blank\" rel=\"noopener\"&gt; 👥 Manage HRSD Licenses (VTB) &lt;/a&gt; &lt;a style=\"background-color: #293e40; color: white; padding: 12px 20px; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block;\" href=\"https://dev381481.service-now.com/now/nav/ui/classic/params/target/%24vtb.do%3Fsysparm_board%3Dbce6c32e935cc710b439f04bdd03d607\" target=\"_blank\" rel=\"noopener\"&gt; 📊 Manage SPM Licenses (VTB) &lt;/a&gt;&lt;/div&gt;","noDebounce":true,"propLabel":"HTML"}</component_props>
+        <h>12</h>
+        <name/>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-23 05:51:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9a314aeb93dc8f10b439f04bdd03d679</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>par_dashboard_widget_9a314aeb93dc8f10b439f04bdd03d679</sys_update_name>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-23 09:17:22</sys_updated_on>
+        <visualization/>
+        <w>36</w>
+        <widget_props/>
+        <x>1</x>
+        <y>26</y>
+    </par_dashboard_widget>
+</record_update>

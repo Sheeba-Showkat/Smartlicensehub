@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list action="DELETE" parent="" relationship="" sys_domain="global" table="x_1977323_smartlic_license_audit" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>ai_confidence_score</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>ac2301019390c310b439f04bdd03d6df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>ai_justification</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>242301019390c310b439f04bdd03d6e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_role</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>a82301019390c310b439f04bdd03d6e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>days_inactive</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>202301019390c310b439f04bdd03d6e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>review_status</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>a42301019390c310b439f04bdd03d6e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>target_user</element>
+            <list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_id>2c2301019390c310b439f04bdd03d6e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_1977323_smartlic_license_audit</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>Taiba.Eijaz</sys_created_by>
+            <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>682301019390c310b439f04bdd03d6dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1977323_smartlic_license_audit</sys_name>
+            <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+            <sys_update_name>sys_ui_list_x_1977323_smartlic_license_audit_null</sys_update_name>
+            <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+            <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sys_ui_list_x_1977323_smartlic_license_audit_null</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_list parent="" relationship="" sys_domain="global" table="x_1977323_smartlic_license_audit" version="2" view=""><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>ai_confidence_score</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>0</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>ac2301019390c310b439f04bdd03d6df</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>ai_justification</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>1</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>242301019390c310b439f04bdd03d6e0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>assigned_role</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>2</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>a82301019390c310b439f04bdd03d6e0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>days_inactive</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>3</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>202301019390c310b439f04bdd03d6e1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>review_status</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>4</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>a42301019390c310b439f04bdd03d6e1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list_element action="INSERT_OR_UPDATE"><average_value>false</average_value><element>target_user</element><list_id display_value="x_1977323_smartlic_license_audit" element="NULL" name="x_1977323_smartlic_license_audit" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">682301019390c310b439f04bdd03d6dd</list_id><max_value>false</max_value><min_value>false</min_value><position>5</position><sum>false</sum><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_id>2c2301019390c310b439f04bdd03d6e1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on></sys_ui_list_element><sys_ui_list action="INSERT_OR_UPDATE"><average_value>false</average_value><element/><max_value>false</max_value><min_value>false</min_value><name>x_1977323_smartlic_license_audit</name><parent/><position/><relationship/><sum>false</sum><sys_class_name>sys_ui_list</sys_class_name><sys_created_by>Taiba.Eijaz</sys_created_by><sys_created_on>2026-04-15 06:55:13</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>682301019390c310b439f04bdd03d6dd</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1977323_smartlic_license_audit</sys_name><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>sys_ui_list_x_1977323_smartlic_license_audit_null</sys_update_name><sys_updated_by>Taiba.Eijaz</sys_updated_by><sys_updated_on>2026-04-15 06:55:13</sys_updated_on><sys_user/><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_list></sys_ui_list></record_update>]]></payload>
+        <payload_hash>1155818679</payload_hash>
+        <record_name>License Audit</record_name>
+        <reverted_from/>
+        <source>96b6ceb493d84310b439f04bdd03d640</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-15 06:55:13</sys_created_on>
+        <sys_id>ac2301019390c310b439f04bdd03d6e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19d8fec2e310000001</sys_recorded_at>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-15 06:55:13</sys_updated_on>
+        <type>List Layout</type>
+        <update_guid>6c2301019390c310598741a65bab0ee5</update_guid>
+        <update_guid_history>6c2301019390c310598741a65bab0ee5:1155818679</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-17 07:21:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_list">sys_ui_list</sys_db_object>
+        <sys_id>18a6c5e26c004ea8a7f68a93e59e0390</sys_id>
+        <sys_metadata>682301019390c310b439f04bdd03d6dd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1977323_smartlic_license_audit</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent display_value="">dc7ca04593dc8310b439f04bdd03d6f9</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sys_ui_list_x_1977323_smartlic_license_audit_null</sys_update_name>
+        <sys_update_version display_value="sys_ui_list_x_1977323_smartlic_license_audit_null">ac2301019390c310b439f04bdd03d6e5</sys_update_version>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-17 07:21:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
