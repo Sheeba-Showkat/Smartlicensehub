@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <alternate_portal/>
+        <communication_channels/>
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
+        <homepage display_value="smart_license_hub">cade029593600f50b439f04bdd03d69a</homepage>
+        <icon/>
+        <inactive>false</inactive>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page/>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 17:19:19</sys_created_on>
+        <sys_id>1ecd421593600f50b439f04bdd03d615</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>SmartHub</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_portal_1ecd421593600f50b439f04bdd03d615</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-02 14:32:33</sys_updated_on>
+        <theme display_value="SmartHub Theme">7d91f13d9368cf50b439f04bdd03d664</theme>
+        <title>SmartHub</title>
+        <ts_index_group/>
+        <url_suffix>smarthub</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=1ecd421593600f50b439f04bdd03d615"/>
+</record_update>

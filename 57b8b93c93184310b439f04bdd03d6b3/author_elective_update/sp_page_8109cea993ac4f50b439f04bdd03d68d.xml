@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="DELETE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>license_hub</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 11:33:13</sys_created_on>
+        <sys_id>8109cea993ac4f50b439f04bdd03d68d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>license_hub</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_page_8109cea993ac4f50b439f04bdd03d68d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 11:33:13</sys_updated_on>
+        <title>license hub</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="DELETE" query="documentkey=8109cea993ac4f50b439f04bdd03d68d"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sp_page_8109cea993ac4f50b439f04bdd03d68d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page"><sp_page action="INSERT_OR_UPDATE"><category>custom</category><css/><draft>false</draft><dynamic_title_structure/><human_readable_url_structure/><id>license_hub</id><internal>false</internal><omit_watcher>false</omit_watcher><public>false</public><roles/><seo_script/><short_description/><sys_class_name>sp_page</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-04-29 11:33:13</sys_created_on><sys_id>8109cea993ac4f50b439f04bdd03d68d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>license_hub</sys_name><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>sp_page_8109cea993ac4f50b439f04bdd03d68d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-04-29 11:33:13</sys_updated_on><title>license hub</title><use_seo_script>false</use_seo_script></sp_page><sys_translated_text action="delete_multiple" query="documentkey=8109cea993ac4f50b439f04bdd03d68d"/></record_update>]]></payload>
+        <payload_hash>595737920</payload_hash>
+        <record_name>license_hub</record_name>
+        <reverted_from/>
+        <source>96b6ceb493d84310b439f04bdd03d640</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 11:33:13</sys_created_on>
+        <sys_id>8509cea993ac4f50b439f04bdd03d693</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dd903b9490000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 11:33:13</sys_updated_on>
+        <type>Page</type>
+        <update_guid>8109cea92eac4f504d98ecb36ecbd792</update_guid>
+        <update_guid_history>8109cea92eac4f504d98ecb36ecbd792:595737920</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="license_hub">c19e9af193eccf50b439f04bdd03d65e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 07:45:54</sys_created_on>
+        <sys_db_object display_value="" name="sp_page">sp_page</sys_db_object>
+        <sys_id>b38f207aa0924d239aaf374f43135b81</sys_id>
+        <sys_metadata>8109cea993ac4f50b439f04bdd03d68d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>license_hub</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sp_page_8109cea993ac4f50b439f04bdd03d68d</sys_update_name>
+        <sys_update_version display_value="sp_page_8109cea993ac4f50b439f04bdd03d68d">8509cea993ac4f50b439f04bdd03d693</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 07:45:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

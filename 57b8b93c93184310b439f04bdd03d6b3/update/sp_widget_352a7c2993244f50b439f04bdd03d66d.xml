@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function(spUtil) {
+  var c = this;
+
+  c.takeAction = function(sys_id, actionType) {
+    // Lock in the action and target record
+    c.data.action = actionType;
+    c.data.target_sys_id = sys_id;
+    
+    // Send to the server matrix seamlessly
+    c.server.update().then(function() {
+      // Clear variables after server execution to prevent loops
+      c.data.action = undefined;
+      c.data.target_sys_id = undefined;
+      
+      // Trigger a platform notification
+      if(actionType === 'retained') {
+        spUtil.addInfoMessage('System Override: License access has been retained.');
+      } else {
+        spUtil.addInfoMessage('Execution Logged: License queued for manual revocation.');
+      }
+    });
+  };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* ==========================================================================
+   1. CORE LAYOUT &amp; GLOBAL STYLES
+   ========================================================================== */
+.enterprise-dashboard { background-color: #f1f5f9; padding: 30px; font-family: 'Inter', sans-serif; }
+.dashboard-wrapper { max-width: 100%; width: 100%; margin: 0 auto; }
+.mb-4 { margin-bottom: 24px; }
+
+/* Alignment Logic */
+.match-height-row { display: flex; flex-wrap: wrap; }
+.match-height-row &gt; .col-md-6 { display: flex; flex-direction: column; }
+.h-100 { flex: 1; }
+
+/* Right Column Stacking Logic */
+.stacked-column { display: flex; flex-direction: column; height: 100%; }
+.flex-card { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.mt-gap { margin-top: 24px; } 
+
+/* Card Styles */
+.chart-card, .data-grid-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+.chart-header h3 { font-size: 14px; font-weight: 700; color: #1e293b; text-transform: uppercase; margin: 0; }
+
+/* ==========================================================================
+   2. KPI CARDS
+   ========================================================================== */
+.kpi-card { display: flex; align-items: center; background: #fff; padding: 20px; border-radius: 12px; border-left: 6px solid transparent; }
+.success-card { border-left-color: #10b981; } 
+.warning-card { border-left-color: #f59e0b; } 
+.danger-card { border-left-color: #ef4444; }
+.kpi-icon { font-size: 35px; margin-right: 15px; color: #cbd5e1; }
+.kpi-data h3 { font-size: 24px; font-weight: 700; margin: 0; }
+
+/* ==========================================================================
+   3. DONUT CHARTS
+   ========================================================================== */
+.donut-content-area { flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+.donut-wrapper { display: flex; align-items: center; width: 100%; height: 100%; }
+.mini-donut { flex-grow: 1; align-items: center; }
+
+.donut-svg-container { width: 150px; height: 150px; position: relative; flex-shrink: 0; margin-right: 30px; }
+.mini-donut .donut-svg-container { width: 110px; height: 110px; margin-right: 40px; }
+
+.donut { transform: rotate(-90deg); border-radius: 50%; }
+.donut-center { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.donut-total { font-size: 28px; font-weight: 800; color: #0f172a; }
+.small-total { font-size: 22px; }
+.donut-text { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #64748b; }
+
+.donut-legend { flex-grow: 1; display: grid; gap: 8px; max-height: 400px; overflow-y: auto; padding-right: 10px; }
+.legend-item { display: flex; align-items: center; font-size: 13px; font-weight: 600; color: #475569; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 12px; }
+.legend-count { margin-left: auto; font-weight: 700; color: #1e293b; padding-left: 20px; }
+
+/* ==========================================================================
+   4. TIMELINE GRAPH &amp; VTB BUTTON
+   ========================================================================== */
+.policy-linear-graph { width: 100%; min-height: 450px; display: flex; align-items: center; justify-content: center; }
+.btn-custom-vtb { background: #0f172a; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; gap: 5px; transition: 0.2s; }
+.btn-custom-vtb:hover { background: #1e293b; transform: translateY(-1px); }
+
+/* ==========================================================================
+   5. DATA GRID &amp; ACTION BUTTONS
+   ========================================================================== */
+.clean-table { width: 100%; border-collapse: collapse; }
+.clean-table th { font-size: 11px; text-transform: uppercase; color: #64748b; padding: 12px; border-bottom: 2px solid #e2e8f0; text-align: left; }
+.clean-table td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+.light-badge { background: #e0f2fe; color: #0284c7; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+
+/* Action Buttons (Tick Color Updated Here) */
+.btn-clean { border: none; padding: 6px 10px; border-radius: 4px; color: #fff; cursor: pointer; transition: background 0.2s ease; margin-right: 4px; }
+
+/* Retain (Tick) Button - Matched with Retained Soft Green */
+.btn-retain { background: #4ade80; color: #064e3b; } 
+.btn-retain:hover { background: #22c55e; }
+
+/* Revoke (Cross) Button */
+.btn-revoke { background: #ef4444; } 
+.btn-revoke:hover { background: #dc2626; }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>command_center</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>command center</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    var auditTable = 'x_1977323_smartlic_license_audit'; 
+
+    // Action handler for Grid Buttons
+    if (input && input.action && input.target_sys_id) {
+        var grUpdate = new GlideRecord(auditTable);
+        if (grUpdate.get(input.target_sys_id)) {
+            grUpdate.setValue('review_status', input.action);
+            grUpdate.update();
+        }
+    }
+
+    data.records = [];
+    data.kpis = { totalSaved: 0, pending: 0, revoked: 0 }; 
+
+    var totalCostSaved = 0;
+    var grSum = new GlideRecord(auditTable);
+    grSum.addEncodedQuery('review_status=manually_revoked^ORreview_status=auto_revoked');
+    grSum.query(); 
+    while (grSum.next()) {
+        var dispVal = grSum.getDisplayValue('cost_saved') || '0'; 
+        var cleanNum = dispVal.replace(/[^0-9.-]+/g, ""); 
+        totalCostSaved += parseFloat(cleanNum) || 0;
+    }
+    data.kpis.totalSaved = totalCostSaved;
+
+    var gaPending = new GlideAggregate(auditTable);
+    gaPending.addAggregate('COUNT');
+    gaPending.addQuery('review_status', 'pending_review');
+    gaPending.query();
+    if (gaPending.next()) data.kpis.pending = parseInt(gaPending.getAggregate('COUNT')) || 0;
+
+    var gaRevoked = new GlideAggregate(auditTable);
+    gaRevoked.addAggregate('COUNT');
+    gaRevoked.addEncodedQuery('review_status=manually_revoked^ORreview_status=auto_revoked');
+    gaRevoked.query();
+    if (gaRevoked.next()) data.kpis.revoked = parseInt(gaRevoked.getAggregate('COUNT')) || 0;
+
+    var chartColors = [
+        '#0ea5e9', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6', 
+        '#ec4899', '#14b8a6', '#6366f1', '#84cc16', '#06b6d4', 
+        '#d946ef', '#f97316', '#475569', '#1d4ed8', '#15803d', 
+        '#b91c1c', '#c026d3', '#047857', '#a21caf', '#be123c', 
+        '#0369a1', '#a16207', '#4d7c0f', '#0f766e', '#6d28d9', 
+        '#fb923c', '#fb7185', '#34d399', '#38bdf8', '#818cf8', 
+        '#e879f9', '#a3e635', '#2dd4bf', '#facc15', '#f87171'  
+    ];
+    
+    var licenseColorMap = {};
+    var licenseColorIndex = 0;
+
+    // EXACT COLORS FROM YOUR SCREENSHOTS
+    var statusColorMap = {
+        'Auto-Revoked': '#ef4444',      
+        'Manually Revoked': '#f43f5e',  
+        'Pending Review': '#f59e0b',    
+        'Newly Assigned': '#16a34a',    // Match with 1st SS (Medium Green)
+        'Retained': '#4ade80',          // Match with 2nd SS (Soft Green)
+        'Draft': '#94a3b8'              
+    };
+    
+    function processDonut(table, query, targetArray, groupByField) {
+        var ga = new GlideAggregate(table);
+        if (query) ga.addEncodedQuery(query);
+        ga.groupBy(groupByField);
+        ga.orderByDesc('COUNT');
+        ga.addAggregate('COUNT');
+        ga.query();
+        var total = 0;
+        
+        while(ga.next()){
+            var count = parseInt(ga.getAggregate('COUNT'));
+            var rawValue = ga.getValue(groupByField) || 'Unknown';
+            var displayLabel = ga.getDisplayValue(groupByField) || rawValue;
+            
+            if (groupByField === 'review_status') {
+                if (rawValue === 'manually_revoked') displayLabel = 'Manually Revoked';
+                else if (rawValue === 'auto_revoked') displayLabel = 'Auto-Revoked';
+                else if (rawValue === 'pending_review') displayLabel = 'Pending Review';
+                else if (rawValue === 'retained') displayLabel = 'Retained';
+                else if (rawValue === 'newly_assigned') displayLabel = 'Newly Assigned';
+            }
+            
+            targetArray.push({ label: displayLabel, count: count });
+            total += count;
+        }
+        
+        var cumulative = 0;
+        targetArray.forEach(function(item){
+            item.percent = total > 0 ? (item.count / total) * 100 : 0;
+            item.offset = 25 - cumulative;
+            if(item.offset < 0) item.offset += 100;
+            
+            if (groupByField === 'review_status') {
+                item.color = statusColorMap[item.label] || '#475569';
+            } else {
+                if (!licenseColorMap[item.label]) {
+                    licenseColorMap[item.label] = chartColors[licenseColorIndex % chartColors.length];
+                    licenseColorIndex++;
+                }
+                item.color = licenseColorMap[item.label];
+            }
+            cumulative += item.percent;
+        });
+        return total;
+    }
+
+    data.licenseBreakdown = [];
+    data.totalLicenseCount = processDonut(auditTable, '', data.licenseBreakdown, 'target_license');
+    
+    data.statusBreakdown = [];
+    data.totalStatusCount = processDonut(auditTable, '', data.statusBreakdown, 'review_status');
+
+    data.pendingBreakdown = [];
+    data.totalPendingCount = processDonut(auditTable, 'review_status=pending_review', data.pendingBreakdown, 'target_license');
+
+    var grData = new GlideRecord(auditTable);
+    grData.addQuery('review_status', 'pending_review');
+    grData.orderByDesc('days_inactive'); 
+    grData.setLimit(50); 
+    grData.query();
+    
+    while (grData.next()) {
+        data.records.push({
+            sys_id: grData.getUniqueValue(),
+            user: grData.getDisplayValue('target_user'),
+            license: grData.getDisplayValue('target_license'),
+            days: parseInt(grData.getValue('days_inactive'))
+        });
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 05:48:39</sys_created_on>
+        <sys_id>352a7c2993244f50b439f04bdd03d66d</sys_id>
+        <sys_mod_count>57</sys_mod_count>
+        <sys_name>command center</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_352a7c2993244f50b439f04bdd03d66d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 14:35:23</sys_updated_on>
+        <template><![CDATA[<div class="enterprise-dashboard">
+  <div class="dashboard-wrapper">
+    
+    <div class="header-section">
+      <div class="header-title">
+        <h2>SmartLicenseHub <span>Analytics</span></h2>
+        <p>Sequential Remediation & Optimization Engine</p>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="kpi-card success-card">
+          <div class="kpi-icon"><i class="fa fa-line-chart"></i></div>
+          <div class="kpi-data">
+            <h4>Total Cost Saved</h4>
+            <h3><span>$</span>{{c.data.kpis.totalSaved | number:2}}</h3> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kpi-card warning-card">
+          <div class="kpi-icon"><i class="fa fa-clock-o"></i></div>
+          <div class="kpi-data">
+            <h4>Pending Reviews</h4>
+            <h3>{{c.data.kpis.pending}}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kpi-card danger-card">
+          <div class="kpi-icon"><i class="fa fa-ban"></i></div>
+          <div class="kpi-data">
+            <h4>Revoked Users</h4>
+            <h3>{{c.data.kpis.revoked}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 match-height-row">
+      <div class="col-md-6">
+        <div class="chart-card h-100">
+          <div class="chart-header">
+            <h3>Total License Breakdown</h3>
+          </div>
+          <div class="donut-content-area">
+            <div class="donut-wrapper">
+              <div class="donut-svg-container">
+                <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                  <circle class="donut-ring" cx="21" cy="21" r="15.9" fill="transparent" stroke="#f1f5f9" stroke-width="5"></circle>
+                  <circle ng-repeat="item in c.data.licenseBreakdown" cx="21" cy="21" r="15.9" fill="transparent" stroke="{{item.color}}" stroke-width="5" stroke-dasharray="{{item.percent}} {{100 - item.percent}}" stroke-dashoffset="{{item.offset}}"></circle>
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-total">{{c.data.totalLicenseCount}}</div>
+                  <div class="donut-text">Total</div>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="legend-item" ng-repeat="item in c.data.licenseBreakdown">
+                  <span class="legend-dot" ng-style="{'background-color': item.color}"></span>
+                  <span class="legend-label">{{item.label}}</span>
+                  <span class="legend-count">{{item.count}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 stacked-column">
+        <div class="chart-card flex-card">
+          <div class="chart-header">
+            <h3>Overall Review Status</h3>
+          </div>
+          <div class="donut-wrapper mini-donut">
+            <div class="donut-svg-container">
+              <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                <circle class="donut-ring" cx="21" cy="21" r="15.9" fill="transparent" stroke="#f1f5f9" stroke-width="5"></circle>
+                <circle ng-repeat="item in c.data.statusBreakdown" cx="21" cy="21" r="15.9" fill="transparent" stroke="{{item.color}}" stroke-width="5" stroke-dasharray="{{item.percent}} {{100 - item.percent}}" stroke-dashoffset="{{item.offset}}"></circle>
+              </svg>
+              <div class="donut-center">
+                <div class="donut-total small-total">{{c.data.totalStatusCount}}</div>
+              </div>
+            </div>
+            <div class="donut-legend grid-legend">
+              <div class="legend-item" ng-repeat="item in c.data.statusBreakdown">
+                <span class="legend-dot" ng-style="{'background-color': item.color}"></span>
+                <span class="legend-label">{{item.label}}</span>
+                <span class="legend-count">{{item.count}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card flex-card mt-gap">
+          <div class="chart-header">
+            <h3>Pending Review Licenses</h3>
+          </div>
+          <div class="donut-wrapper mini-donut">
+            <div class="donut-svg-container">
+              <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                <circle class="donut-ring" cx="21" cy="21" r="15.9" fill="transparent" stroke="#f1f5f9" stroke-width="5"></circle>
+                <circle ng-repeat="item in c.data.pendingBreakdown" cx="21" cy="21" r="15.9" fill="transparent" stroke="{{item.color}}" stroke-width="5" stroke-dasharray="{{item.percent}} {{100 - item.percent}}" stroke-dashoffset="{{item.offset}}"></circle>
+              </svg>
+              <div class="donut-center">
+                <div class="donut-total small-total">{{c.data.totalPendingCount}}</div>
+                <div class="donut-text">Pending</div>
+              </div>
+            </div>
+            <div class="donut-legend grid-legend">
+              <div class="legend-item" ng-repeat="item in c.data.pendingBreakdown">
+                <span class="legend-dot" ng-style="{'background-color': item.color}"></span>
+                <span class="legend-label">{{item.label}}</span>
+                <span class="legend-count">{{item.count}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="chart-card wide-graph-card">
+          <div class="chart-header">
+            <h3>Inactivity Policy & Threshold Timeline</h3>
+            <button class="btn-custom-vtb" ng-click="c.goToVTB()">
+              <i class="fa fa-trello"></i> Open Custom VTB
+            </button>
+          </div>
+          
+          <div class="policy-linear-graph">
+            <svg viewBox="-150 0 1400 450" width="100%" height="100%" style="overflow: visible;">
+              <defs>
+                  <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#16a34a" /> <stop offset="50%" stop-color="#f59e0b" />
+                      <stop offset="100%" stop-color="#ef4444" />
+                  </linearGradient>
+                  <pattern id="diagonalHatch" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                      <line x1="0" y1="0" x2="0" y2="10" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.3"/>
+                  </pattern>
+                  <filter id="glow-node"><feGaussianBlur stdDeviation="5" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+              </defs>
+
+              <text x="-340" y="-110" transform="rotate(-90)" fill="#0f172a" font-size="22" font-weight="900" letter-spacing="4">REVIEW STATUS</text>
+
+              <line x1="120" y1="80" x2="1100" y2="80" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8,8"/>
+              <text x="100" y="75" fill="#0f172a" font-size="18" font-weight="bold" text-anchor="end">Auto-Revoked</text>
+              <text x="100" y="95" fill="#64748b" font-size="15" text-anchor="end">State 3</text>
+
+              <line x1="120" y1="200" x2="1100" y2="200" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8,8"/>
+              <text x="100" y="195" fill="#0f172a" font-size="18" font-weight="bold" text-anchor="end">Pending Review</text>
+              <text x="100" y="215" fill="#64748b" font-size="15" text-anchor="end">State 2</text>
+
+              <line x1="120" y1="320" x2="1100" y2="320" stroke="#cbd5e1" stroke-width="3"/>
+              <text x="100" y="315" fill="#0f172a" font-size="18" font-weight="bold" text-anchor="end">Newly Assigned</text>
+              <text x="100" y="335" fill="#64748b" font-size="15" text-anchor="end">State 1</text>
+
+              <rect x="670" y="20" width="160" height="300" fill="url(#diagonalHatch)" rx="4"/>
+              
+              <polyline points="200,320 450,200 750,200 1000,80" fill="none" stroke="url(#line-grad)" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+
+              <circle cx="200" cy="320" r="16" fill="#16a34a" stroke="#fff" stroke-width="4" filter="url(#glow-node)"/>
+              <text x="200" y="375" fill="#334155" font-size="16" font-weight="bold" text-anchor="middle">(0-30 Days)</text>
+              <g transform="translate(100, 240)">
+                 <rect width="180" height="50" fill="#fff" rx="8" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.1));"/>
+                 <text x="15" y="22" fill="#0f172a" font-size="14" font-weight="bold">Newly Assigned:</text>
+                 <text x="15" y="40" fill="#64748b" font-size="12">Assigned Recently</text>
+              </g>
+
+              <circle cx="450" cy="200" r="16" fill="#f59e0b" stroke="#fff" stroke-width="4" filter="url(#glow-node)"/>
+              <text x="450" y="375" fill="#334155" font-size="16" font-weight="bold" text-anchor="middle">(Day 31)</text>
+              <g transform="translate(280, 130)">
+                 <rect width="210" height="50" fill="#fff" rx="8" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.1));"/>
+                 <text x="15" y="22" fill="#0f172a" font-size="14" font-weight="bold">Review Initiated:</text>
+                 <text x="15" y="40" fill="#64748b" font-size="12">Duration runs up to Day 89</text>
+              </g>
+
+              <circle cx="750" cy="200" r="16" fill="#f59e0b" stroke="#fff" stroke-width="4" filter="url(#glow-node)"/>
+              <text x="750" y="375" fill="#334155" font-size="16" font-weight="bold" text-anchor="middle">(Day 40-50)</text>
+              <g transform="translate(750, 240)">
+                 <rect width="250" height="50" rx="8" style="fill: #0f172a !important; stroke: none !important; filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3));"/>
+                 <polygon points="-12,25 0,15 0,35" style="fill: #0f172a !important; stroke: none !important;"/>
+                 <text x="125" y="22" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" style="fill: #ffffff !important;">CRITICAL ACTION THRESHOLD</text>
+                 <text x="125" y="40" fill="#cbd5e1" font-size="12" text-anchor="middle" style="fill: #cbd5e1 !important;">(REMEDY REQUIRED)</text>
+              </g>
+
+              <circle cx="1000" cy="80" r="16" fill="#ef4444" stroke="#fff" stroke-width="4" filter="url(#glow-node)"/>
+              <text x="1000" y="375" fill="#334155" font-size="16" font-weight="bold" text-anchor="middle">(Day 90+)</text>
+              <g transform="translate(820, 10)">
+                 <rect width="200" height="50" fill="#fff" rx="8" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.1));"/>
+                 <text x="15" y="22" fill="#0f172a" font-size="14" font-weight="bold">Auto-Revoked:</text>
+                 <text x="15" y="40" fill="#64748b" font-size="12">Rule met, role removed</text>
+              </g>
+
+              <text x="600" y="430" fill="#0f172a" font-size="20" font-weight="900" text-anchor="middle">Days Inactive</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div class="data-grid-card">
+      <div class="chart-header">
+        <h3>System Grid: Pending Remediation Audits</h3>
+      </div>
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>License</th>
+            <th>Inactive</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="record in c.data.records">
+            <td class="fw-bold">{{record.user}}</td>
+            <td><span class="light-badge">{{record.license}}</span></td>
+            <td><span class="text-danger fw-bold">{{record.days}} Days</span></td>
+            <td class="action-cell">
+              <button class="btn-clean btn-retain" ng-click="c.takeAction(record.sys_id, 'retained')" title="Retain"><i class="fa fa-check"></i></button>
+              <button class="btn-clean btn-revoke" ng-click="c.takeAction(record.sys_id, 'manually_revoked')" title="Revoke"><i class="fa fa-times"></i></button>
+            </td>
+          </tr>
+          <tr ng-if="c.data.records.length == 0">
+            <td colspan="4" class="empty-state">System optimized. No pending operations found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div> 
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>352a7c2993244f50b439f04bdd03d66d</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 05:48:39</sys_created_on>
+        <sys_id>b52a38a193644f50b439f04bdd03d686</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 05:48:39</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

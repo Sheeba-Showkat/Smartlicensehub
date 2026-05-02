@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $rootScope, spUtil, $timeout) {
+    var c = this;
+    
+    // Initial State
+    c.currentBoard = 'all';
+    c.boardSubtitle = "License Audits by Review Status";
+
+    /**
+     * 1. BOARD NAVIGATION
+     * Listens for clicks from the VTB Menu widget.
+     * Updates titles and re-fetches lanes/cards from the server.
+     */
+    $rootScope.$on('smarthub_vtb_changed', function(event, boardName) {
+        c.currentBoard = boardName;
+        c.boardSubtitle = (boardName === 'all') ? 
+            "License Audits by Review Status" : 
+            "License Audits by Target License (" + boardName + ")";
+
+        c.server.get({
+            board: boardName
+        }).then(function(r) {
+            c.data.lanes = r.data.lanes;
+        });
+    });
+
+    /**
+     * 2. DRAG START
+     * Captures the unique ID of the card and its current column.
+     */
+    c.dragStart = function(event, sys_id, sourceLaneId) {
+        event.dataTransfer.setData("sys_id", sys_id);
+        event.dataTransfer.setData("source_lane", sourceLaneId);
+        event.dataTransfer.effectAllowed = "move";
+        
+        // Visual feedback: adding a slight transparency to the dragged element
+        event.target.style.opacity = "0.4";
+    };
+
+    /**
+     * 3. DROP CARD (The Engine)
+     * Handles the instant UI move and the background server update.
+     */
+    c.dropCard = function(event, targetLaneId) {
+      event.preventDefault();
+      var sys_id = event.dataTransfer.getData("sys_id");
+      var sourceLaneId = event.dataTransfer.getData("source_lane");
+
+      if (!sys_id || sourceLaneId === targetLaneId) return;
+
+      $timeout(function() {
+          // 1. Instant UI update (splice/push)
+          var cardToMove = null;
+          c.data.lanes.forEach(function(lane) {
+              if (lane.id === sourceLaneId) {
+                  var idx = lane.cards.findIndex(function(card) { return card.sys_id === sys_id; });
+                  if (idx !== -1) { cardToMove = lane.cards.splice(idx, 1)[0]; }
+              }
+          });
+
+          if (cardToMove) {
+              c.data.lanes.forEach(function(lane) {
+                  if (lane.id === targetLaneId) { lane.cards.push(cardToMove); }
+              });
+          }
+
+          // 2. Absolute Sync with the Database
+          c.server.get({ 
+              action: 'move_card', 
+              sys_id: sys_id, 
+              new_status: targetLaneId, 
+              board: c.currentBoard 
+          }).then(function(r) {
+              // This is what prevents the disappearance—it syncs the lanes with the server's new ISEMPTY results
+              c.data.lanes = r.data.lanes;
+              spUtil.addTrivialMessage("Record successfully moved to " + targetLaneId);
+          });
+      });
+  };
+
+    // Clean up drag opacity if drop is cancelled
+    document.addEventListener("dragend", function(event) {
+        event.target.style.opacity = "1";
+    });
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+
+/* ========================================= */
+/* 1. BASE WRAPPERS                          */
+/* ========================================= */
+.vtb-theme-wrapper {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  padding: 0;
+}
+
+.vtb-top-banner {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.vtb-top-banner h2 { margin: 0 0 5px 0; font-size: 18px; font-weight: 700; color: #1e3a8a; }
+.vtb-top-banner span { font-size: 13px; color: #64748b; font-weight: 500; }
+
+.vtb-inner-board {
+  padding: 25px;
+  background-color: #f8fafc;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden;
+  min-height: 600px;
+  
+  /* Smooth scrolling on iOS */
+  -webkit-overflow-scrolling: touch; 
+}
+
+/* ========================================= */
+/* 2. BOARD &amp; COLUMNS                        */
+/* ========================================= */
+.kanban-board {
+  display: flex; 
+  justify-content: center; /* THE FIX: Centers the columns horizontally */
+  width: 100%;             /* THE FIX: Tells the board to span the full width of its container */
+  gap: 0; /* Removes all space between columns */
+  align-items: stretch; /* Forces every column to be the exact same height */
+  min-width: max-content; 
+  padding-bottom: 15px;
+  
+  /* Set a fixed height for the board so columns scroll internally */
+  height: 65vh; 
+  min-height: 550px;
+  max-height: 800px;
+}
+
+.kanban-lane {
+  flex: 0 0 300px; /* Slightly wider to accommodate internal scrollbars */
+  background-color: #f1f5f9;
+  display: flex; 
+  flex-direction: column; 
+  border: 1px solid #cbd5e1;
+  border-right: none; /* Prevents double-thick borders where columns touch */
+  border-radius: 0; /* Flush edges */
+}
+
+/* Round only the outermost corners of the entire board */
+.kanban-lane:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.kanban-lane:last-child { border-right: 1px solid #cbd5e1; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+.lane-header {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 15px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  border-bottom: 1px solid #0f172a;
+  gap: 10px; /* Forces a safe buffer between the text and the number */
+}
+.lane-title { 
+  font-weight: 600; 
+  font-size: 13px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+  /* THE FIX: Prevents wrapping and adds the '...' */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  flex: 1; /* Tells the text to fill space but shrink if needed */
+}
+.lane-count { 
+  font-size: 12px; 
+  font-weight: 700; 
+  background: rgba(255,255,255,0.2); 
+  padding: 2px 8px; 
+  border-radius: 12px; 
+  flex-shrink: 0; /* THE FIX: Prevents the badge circle from ever getting squished */
+}
+
+.lane-body { 
+  padding: 12px 10px 12px 12px; 
+  flex: 1; /* Tells the body to take up all remaining height */
+  overflow-y: auto; /* THE MAGIC: Makes cards scroll inside the column! */
+}
+
+/* Custom Sleek Scrollbar for the columns */
+.lane-body::-webkit-scrollbar { width: 6px; }
+.lane-body::-webkit-scrollbar-track { background: transparent; }
+.lane-body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.lane-body::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ========================================= */
+/* 3. CARDS &amp; CONTENT                        */
+/* ========================================= */
+.kanban-card {
+  background: #ffffff; 
+  border-radius: 6px; 
+  padding: 15px; 
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-left: 4px solid #3b82f6;
+  cursor: grab; transition: transform 0.1s, box-shadow 0.2s;
+}
+.kanban-card:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+.kanban-card:active { cursor: grabbing; transform: scale(0.98); }
+
+.card-user { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.avatar-sm { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: #eff6ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; border: 1px solid #bfdbfe; }
+
+.user-info { display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.user-name { font-size: 13px; font-weight: 600; color: #1e293b; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-email { font-size: 11px; color: #64748b; margin-top: 3px; display: flex; gap: 4px; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.card-details { 
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; 
+  flex-wrap: wrap; gap: 8px;
+}
+.text-muted { font-size: 11px; color: #64748b; font-weight: 500; display: flex; gap: 4px; align-items: center; white-space: nowrap; }
+
+.empty-lane { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 13px; font-style: italic; border: 2px dashed #cbd5e1; border-radius: 6px; }
+
+
+/* Card License Badge Styling (Bulletproof Left Alignment) */
+.card-license-badge {
+    font-size: 11px;
+    color: #64748b;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 4px 10px;
+    border-radius: 3px;
+    
+    /* Forces the badge to be a block that hugs its content */
+    display: flex; 
+    width: fit-content;
+    align-items: center;
+    
+    /* Overrides any parent flexbox centering */
+    align-self: flex-start; 
+    
+    /* Strictly forces margin to top: 8px, right: 0, bottom: 0, left: 0 */
+    margin: 8px 0 0 0 !important; 
+    
+    font-weight: 600;
+    line-height: 1; /* Prevents invisible line-height from pushing it down */
+}
+
+.card-license-badge i {
+    margin-right: 6px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* ========================================= */
+/* 4. RESPONSIVE MEDIA QUERIES               */
+/* ========================================= */
+
+/* VERY LARGE SCREENS (Ultrawide/4K) */
+@media (min-width: 1600px) {
+  .kanban-board {
+    width: 100%; /* Take up the full width */
+  }
+  .kanban-lane {
+    flex: 1 0 280px; /* Allow columns to stretch and share empty space */
+    max-width: 380px; /* Cap the width so cards don't look awkwardly long */
+  }
+}
+
+/* TABLET SCREENS */
+@media (max-width: 1024px) {
+  .vtb-inner-board { padding: 20px; }
+  .kanban-board { gap: 15px; }
+  .kanban-lane { flex: 0 0 260px; /* Shrink lanes slightly to fit more on screen */ }
+}
+
+/* MOBILE SCREENS (Phones) */
+@media (max-width: 768px) {
+  .vtb-top-banner { padding: 15px; }
+  .vtb-top-banner h2 { font-size: 16px; }
+  
+  .vtb-inner-board {
+    padding: 15px;
+    min-height: 450px;
+  }
+  
+  .kanban-lane {
+    /* Magic trick: Takes up 85% of screen width so the next column peeks out, hinting to swipe */
+    flex: 0 0 85vw; 
+    max-width: 300px;
+  }
+  
+  .kanban-card { padding: 12px; }
+  .card-user { margin-bottom: 10px; }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>smarthub_custom_vtb</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>SmartHub Custom VTB</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>admin,x_1977323_smartlic.admin,x_1977323_smartlic.manager</roles>
+        <script><![CDATA[(function() {
+    var auditTable = 'x_1977323_smartlic_license_audit';
+    var filterBoard = (input && input.board) ? input.board : 'all';
+
+    // ==========================================
+    // 1. DATABASE UPDATE (With Auto-Revoke Automation)
+    // ==========================================
+    if (input && input.action === 'move_card') {
+        var grUpdate = new GlideRecord(auditTable);
+        if (grUpdate.get(input.sys_id)) {
+            if (filterBoard === 'all') {
+                grUpdate.setValue('review_status', input.new_status);
+            } else {
+                // If dropped into Draft, clear the license AND auto-revoke!
+                if (input.new_status === 'Draft') {
+                    grUpdate.setValue('target_license', ''); 
+                    
+                    // --- NEW AUTOMATION ADDED HERE ---
+                    // Automatically changes the Review Status for the analytics dashboard
+                    grUpdate.setValue('review_status', 'manually_revoked'); 
+                    
+                } else {
+                    grUpdate.setValue('target_license', input.new_status);
+                }
+            }
+            grUpdate.update();
+        }
+    }
+
+    // ==========================================
+    // 2. PRE-DEFINE COLUMNS (Based on Board)
+    // ==========================================
+    data.lanes = [];
+    var laneMap = {};
+    var boardConfig = {
+        'all': [
+           {id: 'pending_review', title: 'Pending Review'},
+            {id: 'retained', title: 'Retained'}, 
+            {id: 'manually_revoked', title: 'Manually Revoked'}
+        ],
+        'ITSM': [
+            {id: 'Draft', title: 'Draft'}, {id: 'ITSM Admin / Developer', title: 'ITSM Admin / Developer'},
+            {id: 'ITSM Enterprise', title: 'ITSM Enterprise'}, {id: 'ITSM Professional', title: 'ITSM Professional'},
+            {id: 'ITSM Standard', title: 'ITSM Standard'}, {id: 'Legacy Approver', title: 'Legacy Approver'}
+        ],
+        'CSM': [
+            {id: 'Draft', title: 'Draft'}, {id: 'CSM Administrator', title: 'CSM Administrator'},
+            {id: 'CSM Contributor', title: 'CSM Contributor'}, {id: 'CSM Enterprise', title: 'CSM Enterprise'},
+            {id: 'CSM Professional', title: 'CSM Professional'}, {id: 'CSM Standard', title: 'CSM Standard'}
+        ],
+        'HRSD': [
+            {id: 'Draft', title: 'Draft'}, {id: 'Employee Relations Specialist', title: 'Employee Relations Specialist'},
+            {id: 'HR Administrator', title: 'HR Administrator'}, {id: 'HRSD Enterprise', title: 'HRSD Enterprise'},
+            {id: 'HRSD Professional', title: 'HRSD Professional'}, {id: 'HRSD Standard', title: 'HRSD Standard'}
+        ],
+        'SPM': [
+            {id: 'Draft', title: 'Draft'}, {id: 'Agile Team Member', title: 'Agile Team Member'},
+            {id: 'SPM Administrator', title: 'SPM Administrator'}, {id: 'SPM Enterprise', title: 'SPM Enterprise'},
+            {id: 'SPM Professional', title: 'SPM Professional'}, {id: 'SPM Standard', title: 'SPM Standard'}
+        ]
+    };
+
+    var config = boardConfig[filterBoard] || boardConfig['all'];
+    config.forEach(function(col) {
+        laneMap[col.id] = { id: col.id, title: col.title, cards: [] };
+        data.lanes.push(laneMap[col.id]);
+    });
+
+    // ==========================================
+    // 3. BULLETPROOF QUERY (No more guessing values!)
+    // ==========================================
+    var gr = new GlideRecord(auditTable);
+    gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    // ==========================================
+    // 4. MAP DATA (Strict Board Enforcement)
+    // ==========================================
+    while (gr.next()) {
+        var laneKey;
+        if (filterBoard === 'all') {
+           laneKey = gr.getValue('review_status') || 'pending_review';
+        } else {
+            var displayVal = gr.getDisplayValue('target_license');
+            laneKey = (displayVal && displayVal != '') ? displayVal : 'Draft';
+        }
+
+        if (laneMap[laneKey]) {
+            var userName = gr.getDisplayValue('target_user') || 'Unassigned';
+            var userEmail = (gr.target_user && gr.target_user.email) ? gr.target_user.email.toString() : 'No email on file';
+
+            laneMap[laneKey].cards.push({
+                sys_id: gr.getUniqueValue(),
+                user: userName,
+                email: userEmail,
+                initials: userName === 'Unassigned' ? '?' : userName.charAt(0).toUpperCase(),
+                days: parseInt(gr.getValue('days_inactive')) || 0,
+                date: gr.getValue('sys_created_on') ? gr.getValue('sys_created_on').split(' ')[0] : 'N/A',
+                
+                // --- NEW LINE ADDED HERE ---
+                license: gr.getDisplayValue('target_license') || 'No License Assigned'
+            });
+        }
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 16:54:15</sys_created_on>
+        <sys_id>33729bad93a48f50b439f04bdd03d6c2</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>SmartHub Custom VTB</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_33729bad93a48f50b439f04bdd03d6c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-02 17:55:42</sys_updated_on>
+        <template><![CDATA[<div class="vtb-theme-wrapper rubick-card">
+  <div class="vtb-top-banner">
+    <h2>SmartLicenseHub — Interactive VTB</h2>
+    <span>Guided Board: {{c.boardSubtitle}}</span>
+  </div>
+
+  <div class="vtb-inner-board">
+    <div class="kanban-board">
+      <div class="kanban-lane" ng-repeat="lane in c.data.lanes" 
+           ondragover="event.preventDefault()" 
+           ondrop="angular.element(this).scope().c.dropCard(event, angular.element(this).scope().lane.id)">
+        
+        <div class="lane-header">
+          <div class="lane-title" title="{{lane.title}}">{{lane.title}}</div>
+          <div class="lane-count">{{lane.cards.length}}</div>
+        </div>
+
+        <div class="lane-body">
+         <div class="kanban-card" draggable="true" 
+               ondragstart="angular.element(this).scope().c.dragStart(event, angular.element(this).scope().card.sys_id, angular.element(this).scope().lane.id)"
+               ng-repeat="card in lane.cards">
+            
+            <div class="card-user">
+              <div class="avatar-sm">{{card.initials}}</div>
+              <div class="user-info">
+                <span class="user-name">{{card.user}}</span>
+                <span class="user-email" ng-if="card.email !== 'No email on file'"><i class="fa fa-envelope-o"></i> {{card.email}}</span>
+                <span class="user-email text-muted" ng-if="card.email === 'No email on file'">{{card.email}}</span>
+                <div class="card-license-badge">
+                  <i class="fa fa-id-badge"></i> {{card.license}}
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-details" style="border-top: 1px dashed #e2e8f0; padding-top: 10px; margin-top: 5px;">
+              <div class="text-muted" ng-style="card.days > 30 && {'color': '#ef4444', 'font-weight': '700'}">
+                <i class="fa fa-hourglass-o"></i> {{card.days}} Days Inactive
+              </div>
+              
+              <div class="text-muted">
+                <i class="fa fa-calendar"></i> {{card.date}}
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="empty-lane" ng-if="lane.cards.length == 0">Drop cards here</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>33729bad93a48f50b439f04bdd03d6c2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 16:54:15</sys_created_on>
+        <sys_id>fb72536593e48f50b439f04bdd03d6b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 16:54:15</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

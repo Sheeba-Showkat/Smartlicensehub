@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>SmartHub Header - Container 1</name>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_page display_value="smarthub_header">5b365ba993e48f50b439f04bdd03d62b</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 17:11:45</sys_created_on>
+        <sys_id>5886df2993e48f50b439f04bdd03d611</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>SmartHub Header - Container 1</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_container_5886df2993e48f50b439f04bdd03d611</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 17:12:00</sys_updated_on>
+        <title/>
+        <width>container-fluid</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sp_container_5886df2993e48f50b439f04bdd03d611</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>SmartHub Header - Container 1</name><order>1</order><semantic_tag/><sp_page display_value="smarthub_header">5b365ba993e48f50b439f04bdd03d62b</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-04-29 17:11:45</sys_created_on><sys_id>5886df2993e48f50b439f04bdd03d611</sys_id><sys_mod_count>1</sys_mod_count><sys_name>SmartHub Header - Container 1</sys_name><sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package><sys_policy/><sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope><sys_update_name>sp_container_5886df2993e48f50b439f04bdd03d611</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-04-29 17:12:00</sys_updated_on><title/><width>container-fluid</width></sp_container></record_update>]]></payload>
+        <payload_hash>-1328252295</payload_hash>
+        <record_name>SmartHub Header - Container 1</record_name>
+        <reverted_from/>
+        <source>4e42711193accb50b439f04bdd03d6ca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 17:12:00</sys_created_on>
+        <sys_id>3786536d93e48f50b439f04bdd03d6f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dda39e5310000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 17:12:00</sys_updated_on>
+        <type>Container</type>
+        <update_guid>b386536d99e48f5062f5fd630e9a53f2</update_guid>
+        <update_guid_history>b386536d99e48f5062f5fd630e9a53f2:-1328252295,d486136db0e48f50e72abe61c6b1d715:1197306646</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="SmartHub Header - Container 1">e67e123593eccf50b439f04bdd03d68d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 07:45:27</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>1842b888527d430c8fef10d17b9f4490</sys_id>
+        <sys_metadata>5886df2993e48f50b439f04bdd03d611</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SmartHub Header - Container 1</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sp_container_5886df2993e48f50b439f04bdd03d611</sys_update_name>
+        <sys_update_version display_value="sp_container_5886df2993e48f50b439f04bdd03d611">3786536d93e48f50b439f04bdd03d6f3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 07:45:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

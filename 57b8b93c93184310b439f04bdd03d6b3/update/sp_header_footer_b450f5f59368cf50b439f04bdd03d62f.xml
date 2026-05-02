@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  var c = this;
+  c.menuOpen = false;
+  
+  // Controls the hamburger menu on mobile devices
+  c.toggleMenu = function() {
+    c.menuOpen = !c.menuOpen;
+  };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');&#13;
+&#13;
+.smarthub-header {&#13;
+  font-family: 'Inter', sans-serif;&#13;
+  background-color: #ffffff;&#13;
+  border-bottom: 1px solid #e2e8f0;&#13;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);&#13;
+  position: sticky;&#13;
+  top: 0;&#13;
+  z-index: 1000;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+.header-container {&#13;
+  max-width: 1600px;&#13;
+  margin: 0 auto;&#13;
+  padding: 0 25px;&#13;
+  height: 64px;&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+}&#13;
+&#13;
+.logo-section .logo-link {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 10px;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.logo-icon { font-size: 24px; color: #3b82f6; }&#13;
+.logo-text { font-size: 20px; font-weight: 700; color: #1e3a8a; letter-spacing: -0.5px; }&#13;
+&#13;
+.nav-section { display: flex; align-items: center; gap: 30px; }&#13;
+.nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }&#13;
+&#13;
+.nav-links a {&#13;
+  text-decoration: none; font-size: 14px; font-weight: 600;&#13;
+  color: #64748b; padding: 8px 12px; border-radius: 6px; transition: all 0.2s;&#13;
+}&#13;
+.nav-links a:hover, .nav-links a.active {&#13;
+  color: #1e3a8a; background-color: #f1f5f9;&#13;
+}&#13;
+&#13;
+.user-profile {&#13;
+  display: flex; align-items: center; gap: 10px;&#13;
+  padding-left: 20px; border-left: 1px solid #e2e8f0;&#13;
+}&#13;
+.avatar-sm {&#13;
+  width: 32px; height: 32px; border-radius: 50%;&#13;
+  background: #eff6ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center;&#13;
+  font-size: 12px; font-weight: 700; border: 1px solid #bfdbfe;&#13;
+}&#13;
+.user-name { font-size: 13px; font-weight: 600; color: #1e293b; }&#13;
+&#13;
+.mobile-toggle { display: none; background: none; border: none; font-size: 20px; color: #1e3a8a; cursor: pointer; }&#13;
+&#13;
+/* Responsive Mobile Layout */&#13;
+@media (max-width: 768px) {&#13;
+  .header-container { padding: 0 15px; }&#13;
+  .mobile-toggle { display: block; }&#13;
+  .nav-section {&#13;
+    display: none; flex-direction: column; position: absolute;&#13;
+    top: 64px; left: 0; width: 100%; background: #ffffff;&#13;
+    border-bottom: 1px solid #e2e8f0; padding: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.05);&#13;
+  }&#13;
+  .nav-section.mobile-open { display: flex; }&#13;
+  .nav-links { flex-direction: column; width: 100%; gap: 10px; }&#13;
+  .user-profile { width: 100%; padding-left: 0; padding-top: 15px; border-left: none; border-top: 1px solid #e2e8f0; margin-top: 10px; }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>smart_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Smart Header</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Check which page we are on to highlight the active menu link
+    data.page = $sp.getParameter('id') || 'smarthub';
+
+    // Dynamically fetch the logged-in user's info for the avatar
+    var userGR = new GlideRecord('sys_user');
+    if (userGR.get(gs.getUserID())) {
+        data.userName = userGR.getValue('name');
+        var firstName = userGR.getValue('first_name') || '';
+        var lastName = userGR.getValue('last_name') || '';
+        
+        // Create Initials
+        if (firstName && lastName) {
+            data.userInitials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+        } else {
+            data.userInitials = data.userName.charAt(0).toUpperCase();
+        }
+    } else {
+        data.userName = 'System Administrator';
+        data.userInitials = 'SA';
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 04:24:41</sys_created_on>
+        <sys_id>b450f5f59368cf50b439f04bdd03d62f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Smart Header</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_header_footer_b450f5f59368cf50b439f04bdd03d62f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 04:33:03</sys_updated_on>
+        <template><![CDATA[<header class="smarthub-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-section">
+      <a href="/smarthub" class="logo-link">
+        <i class="fa fa-cubes logo-icon"></i>
+        <span class="logo-text">SmartHub</span>
+      </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" ng-click="c.toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="nav-section" ng-class="{'mobile-open': c.menuOpen}">
+      <ul class="nav-links">
+        <li><a href="/smarthub" ng-class="{'active': c.data.page == 'smarthub'}">Command Center</a></li>
+        <li><a href="?id=smarthub_vtb" ng-class="{'active': c.data.page == 'smarthub_vtb'}">License VTBs</a></li>
+      </ul>
+
+      <!-- User Profile (Dynamic) -->
+      <div class="user-profile">
+        <div class="avatar-sm">{{c.data.userInitials}}</div>
+        <span class="user-name">{{c.data.userName}}</span>
+      </div>
+    </nav>
+  </div>
+</header>]]></template>
+    </sp_header_footer>
+</record_update>

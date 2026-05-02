@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables/>
+        <footer display_value="Smart Footer">1d907db59368cf50b439f04bdd03d66f</footer>
+        <footer_fixed>false</footer_fixed>
+        <header display_value="Smart Header">b450f5f59368cf50b439f04bdd03d62f</header>
+        <name>SmartHub Theme</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 04:29:43</sys_created_on>
+        <sys_id>7d91f13d9368cf50b439f04bdd03d664</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>SmartHub Theme</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_theme_7d91f13d9368cf50b439f04bdd03d664</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 15:03:36</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_theme>
+</record_update>

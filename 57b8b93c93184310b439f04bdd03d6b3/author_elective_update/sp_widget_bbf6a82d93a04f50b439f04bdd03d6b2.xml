@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+
+.smarthub-header {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-left .brand-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-logo span {
+  font-weight: 400;
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 1px solid #e2e8f0;
+  padding-right: 20px;
+}
+
+.user-info .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+.user-info .user-role {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logout-btn {
+  color: #94a3b8;
+  font-size: 18px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.logout-btn:hover {
+  color: #ef4444;
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+  .smarthub-header { padding: 0 15px; }
+  .hidden-xs { display: none; }
+  .user-profile { padding-right: 15px; gap: 0; }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>smarthub_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>SmartHub Header</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    var user = gs.getUser();
+    data.userName = user.getDisplayName();
+    
+    // Extract initials for the avatar
+    var names = data.userName.split(' ');
+    data.initials = names[0].charAt(0).toUpperCase() + 
+                   (names.length > 1 ? names[names.length-1].charAt(0).toUpperCase() : '');
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 04:24:57</sys_created_on>
+        <sys_id>bbf6a82d93a04f50b439f04bdd03d6b2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>SmartHub Header</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_bbf6a82d93a04f50b439f04bdd03d6b2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 04:25:29</sys_updated_on>
+        <template><![CDATA[<nav class="smarthub-header">
+  <div class="header-left">
+    <div class="brand-logo">
+      <i class="fa fa-layer-group"></i> SmartHub <span>Enterprise</span>
+    </div>
+  </div>
+  
+  <div class="header-right">
+    <div class="user-profile">
+      <div class="user-info text-right hidden-xs">
+        <div class="user-name">{{::c.data.userName}}</div>
+        <div class="user-role">System Administrator</div>
+      </div>
+      <div class="avatar-circle">{{::c.data.initials}}</div>
+    </div>
+    <a href="/logout.do" class="logout-btn" title="Logout">
+      <i class="fa fa-sign-out"></i>
+    </a>
+  </div>
+</nav>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="DELETE">
+        <id>bbf6a82d93a04f50b439f04bdd03d6b2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 04:24:57</sys_created_on>
+        <sys_id>7bf6a82d93a04f50b439f04bdd03d6b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 04:24:57</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sp_widget_bbf6a82d93a04f50b439f04bdd03d6b2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;amp;display=swap');
+
+.smarthub-header {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-left .brand-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-logo span {
+  font-weight: 400;
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 1px solid #e2e8f0;
+  padding-right: 20px;
+}
+
+.user-info .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+.user-info .user-role {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logout-btn {
+  color: #94a3b8;
+  font-size: 18px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.logout-btn:hover {
+  color: #ef4444;
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+  .smarthub-header { padding: 0 15px; }
+  .hidden-xs { display: none; }
+  .user-profile { padding-right: 15px; gap: 0; }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;smarthub_header&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;SmartHub Header&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+    var user = gs.getUser();
+    data.userName = user.getDisplayName();
+    
+    // Extract initials for the avatar
+    var names = data.userName.split(' ');
+    data.initials = names[0].charAt(0).toUpperCase() + 
+                   (names.length &gt; 1 ? names[names.length-1].charAt(0).toUpperCase() : '');
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-04-29 04:24:57&lt;/sys_created_on&gt;&lt;sys_id&gt;bbf6a82d93a04f50b439f04bdd03d6b2&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;SmartHub Header&lt;/sys_name&gt;&lt;sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SmartLicenseHub"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_bbf6a82d93a04f50b439f04bdd03d6b2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-04-29 04:25:29&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;nav class="smarthub-header"&gt;
+  &lt;div class="header-left"&gt;
+    &lt;div class="brand-logo"&gt;
+      &lt;i class="fa fa-layer-group"&gt;&lt;/i&gt; SmartHub &lt;span&gt;Enterprise&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="header-right"&gt;
+    &lt;div class="user-profile"&gt;
+      &lt;div class="user-info text-right hidden-xs"&gt;
+        &lt;div class="user-name"&gt;{{::c.data.userName}}&lt;/div&gt;
+        &lt;div class="user-role"&gt;System Administrator&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="avatar-circle"&gt;{{::c.data.initials}}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a href="/logout.do" class="logout-btn" title="Logout"&gt;
+      &lt;i class="fa fa-sign-out"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;bbf6a82d93a04f50b439f04bdd03d6b2&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-04-29 04:24:57&lt;/sys_created_on&gt;&lt;sys_id&gt;7bf6a82d93a04f50b439f04bdd03d6b8&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-04-29 04:24:57&lt;/sys_updated_on&gt;&lt;table&gt;sp_widget&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1931254502</payload_hash>
+        <record_name>SmartHub Header</record_name>
+        <reverted_from/>
+        <source>4e42711193accb50b439f04bdd03d6ca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 04:25:29</sys_created_on>
+        <sys_id>af17686d93a04f50b439f04bdd03d68c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dd77c20e80000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 04:25:29</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>2f17686d23a04f50a2a9ae5a7dae5b8b</update_guid>
+        <update_guid_history>2f17686d23a04f50a2a9ae5a7dae5b8b:1931254502,3bf6a82d3fa04f507815eb95429830b6:1461939224</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="SmartHub Header">d72e96f193eccf50b439f04bdd03d61f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 07:44:08</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>0760d2c3b3964b638ad1894b0a63c3f9</sys_id>
+        <sys_metadata>bbf6a82d93a04f50b439f04bdd03d6b2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SmartHub Header</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sp_widget_bbf6a82d93a04f50b439f04bdd03d6b2</sys_update_name>
+        <sys_update_version display_value="sp_widget_bbf6a82d93a04f50b439f04bdd03d6b2">af17686d93a04f50b439f04bdd03d68c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 07:44:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

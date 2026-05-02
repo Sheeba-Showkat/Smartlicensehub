@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($rootScope) {
+  var c = this;
+  c.activeBoard = 'all'; // Default board
+
+  c.switchBoard = function(boardName) {
+    c.activeBoard = boardName;
+    // Broadcast an event to the VTB widget to change its data
+    $rootScope.$broadcast('smarthub_vtb_changed', boardName);
+  };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.vtb-menu-container {
+  display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;
+}
+.vtb-btn {
+  background-color: #ffffff; border: 1px solid #cbd5e1; color: #475569;
+  padding: 12px 20px; border-radius: 8px; font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.vtb-btn:hover { background-color: #f8fafc; border-color: #94a3b8; color: #1e293b; }
+.vtb-btn.active {
+  background-color: #1e3a8a; /* Your SmartHub Dark Blue */
+  color: #ffffff; border-color: #1e3a8a;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3);
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>smarthub_vtb_menu</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>SmartHub VTB Menu</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>admin,x_1977323_smartlic.admin,x_1977323_smartlic.manager</roles>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 16:48:35</sys_created_on>
+        <sys_id>b8315f6193e48f50b439f04bdd03d634</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>SmartHub VTB Menu</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_b8315f6193e48f50b439f04bdd03d634</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-02 17:55:19</sys_updated_on>
+        <template><![CDATA[<div class="vtb-menu-container">
+  <button class="vtb-btn" ng-class="{'active': c.activeBoard === 'all'}" ng-click="c.switchBoard('all')">
+    <i class="fa fa-columns"></i> All Licenses Board
+  </button>
+  <button class="vtb-btn" ng-class="{'active': c.activeBoard === 'ITSM'}" ng-click="c.switchBoard('ITSM')">
+    <i class="fa fa-server"></i> Manage ITSM Licenses
+  </button>
+  <button class="vtb-btn" ng-class="{'active': c.activeBoard === 'CSM'}" ng-click="c.switchBoard('CSM')">
+    <i class="fa fa-headphones"></i> Manage CSM Licenses
+  </button>
+  <button class="vtb-btn" ng-class="{'active': c.activeBoard === 'HRSD'}" ng-click="c.switchBoard('HRSD')">
+    <i class="fa fa-users"></i> Manage HRSD Licenses
+  </button>
+  <button class="vtb-btn" ng-class="{'active': c.activeBoard === 'SPM'}" ng-click="c.switchBoard('SPM')">
+    <i class="fa fa-briefcase"></i> Manage SPM Licenses
+  </button>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b8315f6193e48f50b439f04bdd03d634</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-29 16:48:35</sys_created_on>
+        <sys_id>78315f6193e48f50b439f04bdd03d63a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-29 16:48:35</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

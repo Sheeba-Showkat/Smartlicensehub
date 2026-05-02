@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function(spUtil, spModal) {
+    var c = this;
+
+    c.refreshData = function() {
+        c.server.update();
+    };
+
+    // Use a modal for safe, enterprise-grade confirmations
+    c.confirmAction = function(actionType, item) {
+        if (actionType === 'revoke') {
+            spModal.confirm("Are you sure you want to revoke the <b>" + item.license + "</b> license for <b>" + item.user + "</b>? This will trigger the automated removal flow.", "Confirm Revocation").then(function(confirmed) {
+                if (confirmed) {
+                    c.executeAction(actionType, item.sys_id);
+                }
+            });
+        } else {
+            // Retain doesn't need strict confirmation, just execute
+            c.executeAction(actionType, item.sys_id);
+        }
+    };
+
+    c.executeAction = function(actionType, recordId) {
+        c.data.action = actionType;
+        c.data.targetId = recordId;
+
+        c.server.update().then(function() {
+            c.data.action = null;
+            c.data.targetId = null;
+
+            var actionText = (actionType === 'retain') ? 'successfully retained' : 'queued for secure revocation';
+            spUtil.addInfoMessage('License for the selected user has been ' + actionText + '.');
+        });
+    };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.smart-license-hub {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+
+  // Utility overrides
+  .d-flex { display: flex; }
+  .align-items-center { align-items: center; }
+  .justify-content-between { justify-content: space-between; }
+  .m-b-lg { margin-bottom: 20px; }
+  .m-b-md { margin-bottom: 15px; }
+  .m-r-sm { margin-right: 10px; }
+  .p-md { padding: 15px; }
+  .p-xl { padding: 40px 20px; }
+  .m-0 { margin: 0; }
+  .rounded-lg { border-radius: 8px; overflow: hidden; }
+  .rounded-pill { border-radius: 50px; }
+  .shadow-sm { box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+  // Metric Cards
+  .metric-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    
+    &amp;.border-left-warning { border-left: 4px solid #f0ad4e; }
+    &amp;.border-left-success { border-left: 4px solid #5cb85c; }
+    &amp;.border-left-danger { border-left: 4px solid #d9534f; }
+
+    .metric-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      margin-right: 15px;
+      
+      &amp;.bg-warning-light { background: rgba(240, 173, 78, 0.1); }
+      &amp;.bg-success-light { background: rgba(92, 184, 92, 0.1); }
+      &amp;.bg-danger-light { background: rgba(217, 83, 79, 0.1); }
+    }
+
+    .metric-data {
+      h4 { margin: 0 0 5px 0; font-size: 24px; font-weight: 700; color: #343d47; }
+      span { font-size: 13px; color: #717a85; text-transform: uppercase; letter-spacing: 0.5px; }
+    }
+  }
+
+  // Quick Links
+  .quick-links {
+    .btn-pill {
+      background: #fff;
+      border: 1px solid #e1e5eb;
+      color: #343d47;
+      font-weight: 600;
+      transition: all 0.2s;
+      
+      &amp;:hover {
+        background: #f8f9fa;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // Table Enhancements
+  .modern-table {
+    th {
+      border-bottom: 2px solid #e1e5eb !important;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 16px 15px;
+      border-bottom: 1px solid #f4f6f8;
+    }
+    
+    .avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .badge-soft-primary {
+      background-color: rgba(41, 121, 255, 0.1);
+      color: #2979ff;
+      border: 1px solid rgba(41, 121, 255, 0.2);
+    }
+    
+    .btn-outline-success {
+      background: transparent;
+      border: 1px solid #5cb85c;
+      color: #5cb85c;
+      &amp;:hover { background: #5cb85c; color: #fff; }
+    }
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>smartlicensehub-action-queue</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>SmartLicenseHub Action Queue</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // 1. Initialize data structures
+    data.pendingLicenses = [];
+    data.metrics = {
+        pending: 0,
+        retained: 0,
+        saved: 0
+    };
+
+    var tableName = 'x_1977323_smartlic_license_audit'; // Your custom table
+
+    // 2. Handle Action Triggers
+    if (input && input.action && input.targetId) {
+        var actionGr = new GlideRecord(tableName);
+        if (actionGr.get(input.targetId)) {
+            if (input.action === 'retain') {
+                actionGr.setValue('review_status', 'Retained');
+                actionGr.setValue('ai_justification', 'Manager validated ongoing need via Omni-Board interface.');
+            } else if (input.action === 'revoke') {
+                actionGr.setValue('review_status', 'Manually Revoked'); 
+                actionGr.setValue('ai_justification', 'Manager approved AI recommendation for revocation.');
+            }
+            actionGr.update();
+        }
+    }
+
+    // 3. Fetch Metrics (Aggregate data for the top cards)
+    var metricGr = new GlideAggregate(tableName);
+    metricGr.addAggregate('COUNT', 'review_status');
+    metricGr.addAggregate('SUM', 'cost_saved'); // Assuming you have a currency/number field
+    metricGr.query();
+    
+    while(metricGr.next()) {
+        var status = metricGr.getValue('review_status');
+        var count = metricGr.getAggregate('COUNT', 'review_status');
+        
+        if (status === 'Pending Review') {
+            data.metrics.pending = parseInt(count, 10);
+        } else if (status === 'Retained') {
+            data.metrics.retained = parseInt(count, 10);
+        } else if (status === 'Manually Revoked' || status === 'Auto-Revoked') {
+            // Add up the cost saved for revoked licenses
+            var cost = parseFloat(metricGr.getAggregate('SUM', 'cost_saved')) || 0;
+            data.metrics.saved += cost;
+        }
+    }
+
+    // 4. Fetch Queue Data
+    var fetchGr = new GlideRecord(tableName);
+    fetchGr.addQuery('review_status', 'Pending Review');
+    fetchGr.orderByDesc('ai_confidence_score');
+    fetchGr.query();
+
+    while (fetchGr.next()) {
+        var userName = fetchGr.getDisplayValue('target_user') || 'Unknown User';
+        
+        // Generate Initials for the UI Avatar
+        var nameParts = userName.split(' ');
+        var initials = nameParts.length > 1 ? (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)) : userName.charAt(0);
+
+        data.pendingLicenses.push({
+            sys_id: fetchGr.getUniqueValue(),
+            user: userName,
+            initials: initials.toUpperCase(),
+            license: fetchGr.getDisplayValue('target_license'),
+            days_inactive: fetchGr.getValue('days_inactive'),
+            score: parseInt(fetchGr.getValue('ai_confidence_score'), 10) || 0
+        });
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 15:33:13</sys_created_on>
+        <sys_id>0f5679d593accb50b439f04bdd03d6e9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>SmartLicenseHub Action Queue</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_0f5679d593accb50b439f04bdd03d6e9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-28 15:39:54</sys_updated_on>
+        <template><![CDATA[<div class="smart-license-hub">
+  <div class="row m-b-lg">
+    <div class="col-md-4">
+      <div class="metric-card shadow-sm border-left-warning">
+        <div class="metric-icon bg-warning-light text-warning"><i class="fa fa-clock-o"></i></div>
+        <div class="metric-data">
+          <h4>{{c.data.metrics.pending}}</h4>
+          <span>Pending AI Reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="metric-card shadow-sm border-left-success">
+        <div class="metric-icon bg-success-light text-success"><i class="fa fa-check-circle"></i></div>
+        <div class="metric-data">
+          <h4>{{c.data.metrics.retained}}</h4>
+          <span>Licenses Retained</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="metric-card shadow-sm border-left-danger">
+        <div class="metric-icon bg-danger-light text-danger"><i class="fa fa-usd"></i></div>
+        <div class="metric-data">
+          <h4>${{c.data.metrics.saved}}</h4>
+          <span>Estimated Cost Saved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-links m-b-lg d-flex">
+    <span class="text-muted m-r-sm font-bold p-t-xs">Module VTBs:</span>
+    <a href="?id=vtb&sys_id=ITSM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"><i class="fa fa-wrench text-info"></i> ITSM</a>
+    <a href="?id=vtb&sys_id=CSM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"><i class="fa fa-headphones text-success"></i> CSM</a>
+    <a href="?id=vtb&sys_id=HRSD_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"><i class="fa fa-users text-primary"></i> HRSD</a>
+    <a href="?id=vtb&sys_id=SPM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm"><i class="fa fa-briefcase text-warning"></i> SPM</a>
+  </div>
+
+  <div class="panel panel-default shadow-sm border-0 rounded-lg">
+    <div class="panel-heading bg-white border-bottom p-md d-flex justify-content-between align-items-center">
+      <h3 class="panel-title font-bold text-dark m-0">
+        <i class="fa fa-bolt text-primary m-r-sm"></i> Live Action Queue
+      </h3>
+      <button class="btn btn-icon btn-default btn-sm" ng-click="c.refreshData()" title="Refresh Queue">
+        <i class="fa fa-refresh text-muted"></i>
+      </button>
+    </div>
+
+    <div class="panel-body p-0">
+      <div class="empty-state-container p-xl text-center" ng-if="c.data.pendingLicenses.length === 0">
+        <div class="empty-icon m-b-md">
+          <i class="fa fa-check-square-o text-success" style="font-size: 64px; opacity: 0.8;"></i>
+        </div>
+        <h3 class="font-bold text-dark m-b-sm">Inbox Zero Achieved</h3>
+        <p class="text-muted text-lg">All pending license reviews have been processed. Great job keeping the platform optimized!</p>
+      </div>
+
+      <div class="table-responsive" ng-if="c.data.pendingLicenses.length > 0">
+        <table class="table table-hover modern-table m-b-none">
+          <thead>
+            <tr>
+              <th class="text-uppercase text-muted font-bold text-xs">Target User</th>
+              <th class="text-uppercase text-muted font-bold text-xs">Assigned License</th>
+              <th class="text-uppercase text-muted font-bold text-xs">Inactivity</th>
+              <th class="text-uppercase text-muted font-bold text-xs">AI Confidence</th>
+              <th class="text-uppercase text-muted font-bold text-xs text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in c.data.pendingLicenses" class="align-middle transition-fast">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="avatar-circle bg-primary text-white m-r-sm shadow-sm">{{::item.initials}}</div>
+                  <span class="font-bold text-dark">{{::item.user}}</span>
+                </div>
+              </td>
+              <td>
+                <span class="badge badge-soft-primary px-3 py-2 rounded-pill">{{::item.license}}</span>
+              </td>
+              <td>
+                <span class="text-dark font-bold">{{::item.days_inactive}} Days</span>
+                <div class="text-xs text-muted">Idle time</div>
+              </td>
+              <td style="width: 20%;">
+                <div class="d-flex align-items-center">
+                  <span class="font-bold m-r-sm" ng-class="{'text-danger': item.score >= 90, 'text-warning': item.score >= 50 && item.score < 90}">{{::item.score}}%</span>
+                  <div class="progress m-b-none" style="height: 6px; width: 100%; border-radius: 10px;">
+                    <div class="progress-bar" ng-class="{'progress-bar-danger': item.score >= 90, 'progress-bar-warning': item.score >= 50 && item.score < 90, 'progress-bar-info': item.score < 50}" role="progressbar" aria-valuenow="{{::item.score}}" aria-valuemin="0" aria-valuemax="100" style="width: {{::item.score}}%;"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-right">
+                <button class="btn btn-outline-success btn-sm m-r-sm btn-action rounded-pill" ng-click="c.confirmAction('retain', item)" title="Approve Continued Access">
+                  Retain
+                </button>
+                <button class="btn btn-danger btn-sm btn-action rounded-pill shadow-sm" ng-click="c.confirmAction('revoke', item)" title="Revoke Access Immediately">
+                  Revoke
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="DELETE">
+        <id>0f5679d593accb50b439f04bdd03d6e9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 15:33:13</sys_created_on>
+        <sys_id>c75679d593accb50b439f04bdd03d6f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-28 15:33:13</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sp_widget_0f5679d593accb50b439f04bdd03d6e9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function(spUtil, spModal) {
+    var c = this;
+
+    c.refreshData = function() {
+        c.server.update();
+    };
+
+    // Use a modal for safe, enterprise-grade confirmations
+    c.confirmAction = function(actionType, item) {
+        if (actionType === 'revoke') {
+            spModal.confirm("Are you sure you want to revoke the &lt;b&gt;" + item.license + "&lt;/b&gt; license for &lt;b&gt;" + item.user + "&lt;/b&gt;? This will trigger the automated removal flow.", "Confirm Revocation").then(function(confirmed) {
+                if (confirmed) {
+                    c.executeAction(actionType, item.sys_id);
+                }
+            });
+        } else {
+            // Retain doesn't need strict confirmation, just execute
+            c.executeAction(actionType, item.sys_id);
+        }
+    };
+
+    c.executeAction = function(actionType, recordId) {
+        c.data.action = actionType;
+        c.data.targetId = recordId;
+
+        c.server.update().then(function() {
+            c.data.action = null;
+            c.data.targetId = null;
+
+            var actionText = (actionType === 'retain') ? 'successfully retained' : 'queued for secure revocation';
+            spUtil.addInfoMessage('License for the selected user has been ' + actionText + '.');
+        });
+    };
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.smart-license-hub {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+
+  // Utility overrides
+  .d-flex { display: flex; }
+  .align-items-center { align-items: center; }
+  .justify-content-between { justify-content: space-between; }
+  .m-b-lg { margin-bottom: 20px; }
+  .m-b-md { margin-bottom: 15px; }
+  .m-r-sm { margin-right: 10px; }
+  .p-md { padding: 15px; }
+  .p-xl { padding: 40px 20px; }
+  .m-0 { margin: 0; }
+  .rounded-lg { border-radius: 8px; overflow: hidden; }
+  .rounded-pill { border-radius: 50px; }
+  .shadow-sm { box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+  // Metric Cards
+  .metric-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    
+    &amp;amp;.border-left-warning { border-left: 4px solid #f0ad4e; }
+    &amp;amp;.border-left-success { border-left: 4px solid #5cb85c; }
+    &amp;amp;.border-left-danger { border-left: 4px solid #d9534f; }
+
+    .metric-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      margin-right: 15px;
+      
+      &amp;amp;.bg-warning-light { background: rgba(240, 173, 78, 0.1); }
+      &amp;amp;.bg-success-light { background: rgba(92, 184, 92, 0.1); }
+      &amp;amp;.bg-danger-light { background: rgba(217, 83, 79, 0.1); }
+    }
+
+    .metric-data {
+      h4 { margin: 0 0 5px 0; font-size: 24px; font-weight: 700; color: #343d47; }
+      span { font-size: 13px; color: #717a85; text-transform: uppercase; letter-spacing: 0.5px; }
+    }
+  }
+
+  // Quick Links
+  .quick-links {
+    .btn-pill {
+      background: #fff;
+      border: 1px solid #e1e5eb;
+      color: #343d47;
+      font-weight: 600;
+      transition: all 0.2s;
+      
+      &amp;amp;:hover {
+        background: #f8f9fa;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // Table Enhancements
+  .modern-table {
+    th {
+      border-bottom: 2px solid #e1e5eb !important;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 16px 15px;
+      border-bottom: 1px solid #f4f6f8;
+    }
+    
+    .avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .badge-soft-primary {
+      background-color: rgba(41, 121, 255, 0.1);
+      color: #2979ff;
+      border: 1px solid rgba(41, 121, 255, 0.2);
+    }
+    
+    .btn-outline-success {
+      background: transparent;
+      border: 1px solid #5cb85c;
+      color: #5cb85c;
+      &amp;amp;:hover { background: #5cb85c; color: #fff; }
+    }
+  }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;smartlicensehub-action-queue&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;SmartLicenseHub Action Queue&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+    // 1. Initialize data structures
+    data.pendingLicenses = [];
+    data.metrics = {
+        pending: 0,
+        retained: 0,
+        saved: 0
+    };
+
+    var tableName = 'x_1977323_smartlic_license_audit'; // Your custom table
+
+    // 2. Handle Action Triggers
+    if (input &amp;&amp; input.action &amp;&amp; input.targetId) {
+        var actionGr = new GlideRecord(tableName);
+        if (actionGr.get(input.targetId)) {
+            if (input.action === 'retain') {
+                actionGr.setValue('review_status', 'Retained');
+                actionGr.setValue('ai_justification', 'Manager validated ongoing need via Omni-Board interface.');
+            } else if (input.action === 'revoke') {
+                actionGr.setValue('review_status', 'Manually Revoked'); 
+                actionGr.setValue('ai_justification', 'Manager approved AI recommendation for revocation.');
+            }
+            actionGr.update();
+        }
+    }
+
+    // 3. Fetch Metrics (Aggregate data for the top cards)
+    var metricGr = new GlideAggregate(tableName);
+    metricGr.addAggregate('COUNT', 'review_status');
+    metricGr.addAggregate('SUM', 'cost_saved'); // Assuming you have a currency/number field
+    metricGr.query();
+    
+    while(metricGr.next()) {
+        var status = metricGr.getValue('review_status');
+        var count = metricGr.getAggregate('COUNT', 'review_status');
+        
+        if (status === 'Pending Review') {
+            data.metrics.pending = parseInt(count, 10);
+        } else if (status === 'Retained') {
+            data.metrics.retained = parseInt(count, 10);
+        } else if (status === 'Manually Revoked' || status === 'Auto-Revoked') {
+            // Add up the cost saved for revoked licenses
+            var cost = parseFloat(metricGr.getAggregate('SUM', 'cost_saved')) || 0;
+            data.metrics.saved += cost;
+        }
+    }
+
+    // 4. Fetch Queue Data
+    var fetchGr = new GlideRecord(tableName);
+    fetchGr.addQuery('review_status', 'Pending Review');
+    fetchGr.orderByDesc('ai_confidence_score');
+    fetchGr.query();
+
+    while (fetchGr.next()) {
+        var userName = fetchGr.getDisplayValue('target_user') || 'Unknown User';
+        
+        // Generate Initials for the UI Avatar
+        var nameParts = userName.split(' ');
+        var initials = nameParts.length &gt; 1 ? (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)) : userName.charAt(0);
+
+        data.pendingLicenses.push({
+            sys_id: fetchGr.getUniqueValue(),
+            user: userName,
+            initials: initials.toUpperCase(),
+            license: fetchGr.getDisplayValue('target_license'),
+            days_inactive: fetchGr.getValue('days_inactive'),
+            score: parseInt(fetchGr.getValue('ai_confidence_score'), 10) || 0
+        });
+    }
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-04-28 15:33:13&lt;/sys_created_on&gt;&lt;sys_id&gt;0f5679d593accb50b439f04bdd03d6e9&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;SmartLicenseHub Action Queue&lt;/sys_name&gt;&lt;sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SmartLicenseHub"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_0f5679d593accb50b439f04bdd03d6e9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-04-28 15:39:54&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="smart-license-hub"&gt;
+  &lt;div class="row m-b-lg"&gt;
+    &lt;div class="col-md-4"&gt;
+      &lt;div class="metric-card shadow-sm border-left-warning"&gt;
+        &lt;div class="metric-icon bg-warning-light text-warning"&gt;&lt;i class="fa fa-clock-o"&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;div class="metric-data"&gt;
+          &lt;h4&gt;{{c.data.metrics.pending}}&lt;/h4&gt;
+          &lt;span&gt;Pending AI Reviews&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-4"&gt;
+      &lt;div class="metric-card shadow-sm border-left-success"&gt;
+        &lt;div class="metric-icon bg-success-light text-success"&gt;&lt;i class="fa fa-check-circle"&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;div class="metric-data"&gt;
+          &lt;h4&gt;{{c.data.metrics.retained}}&lt;/h4&gt;
+          &lt;span&gt;Licenses Retained&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-4"&gt;
+      &lt;div class="metric-card shadow-sm border-left-danger"&gt;
+        &lt;div class="metric-icon bg-danger-light text-danger"&gt;&lt;i class="fa fa-usd"&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;div class="metric-data"&gt;
+          &lt;h4&gt;${{c.data.metrics.saved}}&lt;/h4&gt;
+          &lt;span&gt;Estimated Cost Saved&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="quick-links m-b-lg d-flex"&gt;
+    &lt;span class="text-muted m-r-sm font-bold p-t-xs"&gt;Module VTBs:&lt;/span&gt;
+    &lt;a href="?id=vtb&amp;sys_id=ITSM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"&gt;&lt;i class="fa fa-wrench text-info"&gt;&lt;/i&gt; ITSM&lt;/a&gt;
+    &lt;a href="?id=vtb&amp;sys_id=CSM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"&gt;&lt;i class="fa fa-headphones text-success"&gt;&lt;/i&gt; CSM&lt;/a&gt;
+    &lt;a href="?id=vtb&amp;sys_id=HRSD_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm m-r-sm"&gt;&lt;i class="fa fa-users text-primary"&gt;&lt;/i&gt; HRSD&lt;/a&gt;
+    &lt;a href="?id=vtb&amp;sys_id=SPM_BOARD_ID" class="btn btn-default btn-pill btn-sm shadow-sm"&gt;&lt;i class="fa fa-briefcase text-warning"&gt;&lt;/i&gt; SPM&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="panel panel-default shadow-sm border-0 rounded-lg"&gt;
+    &lt;div class="panel-heading bg-white border-bottom p-md d-flex justify-content-between align-items-center"&gt;
+      &lt;h3 class="panel-title font-bold text-dark m-0"&gt;
+        &lt;i class="fa fa-bolt text-primary m-r-sm"&gt;&lt;/i&gt; Live Action Queue
+      &lt;/h3&gt;
+      &lt;button class="btn btn-icon btn-default btn-sm" ng-click="c.refreshData()" title="Refresh Queue"&gt;
+        &lt;i class="fa fa-refresh text-muted"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="panel-body p-0"&gt;
+      &lt;div class="empty-state-container p-xl text-center" ng-if="c.data.pendingLicenses.length === 0"&gt;
+        &lt;div class="empty-icon m-b-md"&gt;
+          &lt;i class="fa fa-check-square-o text-success" style="font-size: 64px; opacity: 0.8;"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h3 class="font-bold text-dark m-b-sm"&gt;Inbox Zero Achieved&lt;/h3&gt;
+        &lt;p class="text-muted text-lg"&gt;All pending license reviews have been processed. Great job keeping the platform optimized!&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class="table-responsive" ng-if="c.data.pendingLicenses.length &gt; 0"&gt;
+        &lt;table class="table table-hover modern-table m-b-none"&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th class="text-uppercase text-muted font-bold text-xs"&gt;Target User&lt;/th&gt;
+              &lt;th class="text-uppercase text-muted font-bold text-xs"&gt;Assigned License&lt;/th&gt;
+              &lt;th class="text-uppercase text-muted font-bold text-xs"&gt;Inactivity&lt;/th&gt;
+              &lt;th class="text-uppercase text-muted font-bold text-xs"&gt;AI Confidence&lt;/th&gt;
+              &lt;th class="text-uppercase text-muted font-bold text-xs text-right"&gt;Actions&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr ng-repeat="item in c.data.pendingLicenses" class="align-middle transition-fast"&gt;
+              &lt;td&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                  &lt;div class="avatar-circle bg-primary text-white m-r-sm shadow-sm"&gt;{{::item.initials}}&lt;/div&gt;
+                  &lt;span class="font-bold text-dark"&gt;{{::item.user}}&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span class="badge badge-soft-primary px-3 py-2 rounded-pill"&gt;{{::item.license}}&lt;/span&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span class="text-dark font-bold"&gt;{{::item.days_inactive}} Days&lt;/span&gt;
+                &lt;div class="text-xs text-muted"&gt;Idle time&lt;/div&gt;
+              &lt;/td&gt;
+              &lt;td style="width: 20%;"&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                  &lt;span class="font-bold m-r-sm" ng-class="{'text-danger': item.score &gt;= 90, 'text-warning': item.score &gt;= 50 &amp;&amp; item.score &lt; 90}"&gt;{{::item.score}}%&lt;/span&gt;
+                  &lt;div class="progress m-b-none" style="height: 6px; width: 100%; border-radius: 10px;"&gt;
+                    &lt;div class="progress-bar" ng-class="{'progress-bar-danger': item.score &gt;= 90, 'progress-bar-warning': item.score &gt;= 50 &amp;&amp; item.score &lt; 90, 'progress-bar-info': item.score &lt; 50}" role="progressbar" aria-valuenow="{{::item.score}}" aria-valuemin="0" aria-valuemax="100" style="width: {{::item.score}}%;"&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/td&gt;
+              &lt;td class="text-right"&gt;
+                &lt;button class="btn btn-outline-success btn-sm m-r-sm btn-action rounded-pill" ng-click="c.confirmAction('retain', item)" title="Approve Continued Access"&gt;
+                  Retain
+                &lt;/button&gt;
+                &lt;button class="btn btn-danger btn-sm btn-action rounded-pill shadow-sm" ng-click="c.confirmAction('revoke', item)" title="Revoke Access Immediately"&gt;
+                  Revoke
+                &lt;/button&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;0f5679d593accb50b439f04bdd03d6e9&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-04-28 15:33:13&lt;/sys_created_on&gt;&lt;sys_id&gt;c75679d593accb50b439f04bdd03d6f3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-04-28 15:33:13&lt;/sys_updated_on&gt;&lt;table&gt;sp_widget&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-581371698</payload_hash>
+        <record_name>SmartLicenseHub Action Queue</record_name>
+        <reverted_from/>
+        <source>4e42711193accb50b439f04bdd03d6ca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 15:39:54</sys_created_on>
+        <sys_id>49e77d1993accb50b439f04bdd03d6f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dd4bf375d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-28 15:39:54</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>c5e77d1935accb50eecb65beb9edfdf5</update_guid>
+        <update_guid_history>c5e77d1935accb50eecb65beb9edfdf5:-581371698,e607b1d576accb50d67947973250d3a7:299798272,075679d563accb50d8050de38dcd27f1:-677485632</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="SmartLicenseHub Action Queue">80f5ce1593200f50b439f04bdd03d6ea</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 16:41:17</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>76d74b9ca55a41e0b588b6a02189c400</sys_id>
+        <sys_metadata>0f5679d593accb50b439f04bdd03d6e9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SmartLicenseHub Action Queue</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sp_widget_0f5679d593accb50b439f04bdd03d6e9</sys_update_name>
+        <sys_update_version display_value="sp_widget_0f5679d593accb50b439f04bdd03d6e9">49e77d1993accb50b439f04bdd03d6f6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-28 16:41:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

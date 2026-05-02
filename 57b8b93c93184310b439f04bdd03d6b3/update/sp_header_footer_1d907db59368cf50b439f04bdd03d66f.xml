@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.smarthub-footer {&#13;
+  font-family: 'Inter', sans-serif;&#13;
+  background-color: #1e293b; /* Very dark slate, contrasting the white portal */&#13;
+  color: #94a3b8;&#13;
+  padding: 20px 0;&#13;
+  margin-top: auto; /* Pushes footer to bottom if page content is short */&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+.footer-container {&#13;
+  max-width: 1600px;&#13;
+  margin: 0 auto;&#13;
+  padding: 0 25px;&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.footer-left { display: flex; align-items: center; gap: 10px; }&#13;
+.footer-brand { color: #ffffff; font-weight: 600; font-size: 14px; letter-spacing: -0.3px; }&#13;
+.footer-version { background-color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; color: #cbd5e1; }&#13;
+&#13;
+.footer-right { display: flex; align-items: center; gap: 10px; font-weight: 500; }&#13;
+.footer-divider { color: #475569; }&#13;
+&#13;
+.footer-right a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }&#13;
+.footer-right a:hover { color: #ffffff; }&#13;
+&#13;
+/* Responsive */&#13;
+@media (max-width: 768px) {&#13;
+  .footer-container { flex-direction: column; gap: 15px; text-align: center; }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>smart_footer</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Smart Footer</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Dynamically fetch the current year so it never goes out of date
+    var gdt = new GlideDateTime();
+    data.year = gdt.getYearLocalTime();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-30 04:25:48</sys_created_on>
+        <sys_id>1d907db59368cf50b439f04bdd03d66f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Smart Footer</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_header_footer_1d907db59368cf50b439f04bdd03d66f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-04-30 04:25:48</sys_updated_on>
+        <template><![CDATA[<footer class="smarthub-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <span class="footer-brand">SmartLicenseHub</span>
+      <span class="footer-version">v1.0.0</span>
+    </div>
+    
+    <div class="footer-right">
+      <span>&copy; {{c.data.year}} ServiceNow Interns</span>
+      <span class="footer-divider">•</span>
+      <a href="mailto:support@example.com">Support</a>
+    </div>
+  </div>
+</footer>]]></template>
+    </sp_header_footer>
+</record_update>

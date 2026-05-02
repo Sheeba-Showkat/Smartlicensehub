@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>/* ======================================================== */
+/* FORCE FULL BLEED LAYOUT FOR THIS PAGE ONLY               */
+/* ======================================================== */
+
+/* 1. Strip padding from the master containers and page body */
+section.page, 
+main.body, 
+.container-fluid, 
+.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* 2. Remove all margins and padding from the row wrappers */
+.sp-page-row, 
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* 3. Kill the 15px Bootstrap gutter padding on the columns */
+div[class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+body .padding-top,
+.padding-top {
+    padding-top: 0 !important;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>smart_license_hub</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles>admin,x_1977323_smartlic.admin,x_1977323_smartlic.manager</roles>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-04-28 17:20:26</sys_created_on>
+        <sys_id>cade029593600f50b439f04bdd03d69a</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>smart_license_hub</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_page_cade029593600f50b439f04bdd03d69a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-02 17:56:52</sys_updated_on>
+        <title>SmartLicenseHub Command Center</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=cade029593600f50b439f04bdd03d69a"/>
+</record_update>

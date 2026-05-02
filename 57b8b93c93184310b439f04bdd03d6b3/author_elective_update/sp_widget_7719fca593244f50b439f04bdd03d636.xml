@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>license_command_center</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>license command center</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-29 05:44:09</sys_created_on>
+        <sys_id>7719fca593244f50b439f04bdd03d636</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>license command center</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_update_name>sp_widget_7719fca593244f50b439f04bdd03d636</sys_update_name>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-29 05:44:09</sys_updated_on>
+        <template><![CDATA[<div><!-- your widget template --></div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</application>
+        <file_path/>
+        <instance_id>cbad7ea493dc4b18401cddd548373c7e</instance_id>
+        <instance_name>dev381481</instance_name>
+        <name>sp_widget_7719fca593244f50b439f04bdd03d636</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;license_command_center&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;license command center&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Taiba.Eijaz&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-04-29 05:44:09&lt;/sys_created_on&gt;&lt;sys_id&gt;7719fca593244f50b439f04bdd03d636&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;license command center&lt;/sys_name&gt;&lt;sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SmartLicenseHub"&gt;57b8b93c93184310b439f04bdd03d6b3&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_7719fca593244f50b439f04bdd03d636&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Taiba.Eijaz&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-04-29 05:44:09&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;&lt;!-- your widget template --&gt;&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1018243331</payload_hash>
+        <record_name>license command center</record_name>
+        <reverted_from/>
+        <source>96b6ceb493d84310b439f04bdd03d640</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-29 05:44:09</sys_created_on>
+        <sys_id>fb19b02193644f50b439f04bdd03d60f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dd7c4258e0000001</sys_recorded_at>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-29 05:44:09</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>f719b0210b644f50793b0983a4724a0e</update_guid>
+        <update_guid_history>f719b0210b644f50793b0983a4724a0e:-1018243331</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="license command center">55e97c6193644f50b439f04bdd03d64b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Taiba.Eijaz</sys_created_by>
+        <sys_created_on>2026-04-29 05:47:32</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>0d295c3f6caf4c40a7a973dd60671a11</sys_id>
+        <sys_metadata>7719fca593244f50b439f04bdd03d636</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>license command center</sys_name>
+        <sys_package display_value="SmartLicenseHub" source="x_1977323_smartlic">57b8b93c93184310b439f04bdd03d6b3</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SmartLicenseHub">57b8b93c93184310b439f04bdd03d6b3</sys_scope>
+        <sys_scope_delete display_value="">e97aabed29b340c095f9631df6fae400</sys_scope_delete>
+        <sys_update_name>sp_widget_7719fca593244f50b439f04bdd03d636</sys_update_name>
+        <sys_update_version display_value="sp_widget_7719fca593244f50b439f04bdd03d636">fb19b02193644f50b439f04bdd03d60f</sys_update_version>
+        <sys_updated_by>Taiba.Eijaz</sys_updated_by>
+        <sys_updated_on>2026-04-29 05:47:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
